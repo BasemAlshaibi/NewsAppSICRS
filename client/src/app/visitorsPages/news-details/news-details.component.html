@@ -1,0 +1,82 @@
+<div class="container" *ngIf="news">
+
+    <div class="row">
+
+        <div class="news col-12 col-lg-8">
+
+
+            <div class="breadcrumbs">
+                <a> <span [routerLink]="['../../']" class="bhome"> Home </span>
+                </a>
+                <span nz-icon nzType="left" nzTheme="outline" class="arrow"></span>
+                <span [routerLink]="['../../category/',news.categoryId]"><a>{{news.category}}</a></span>
+                <span nz-icon nzType="left" nzTheme="outline" class="arrow"></span>
+                <span>{{news.title}}</span>
+            </div>
+
+
+            <div class="title">
+                <h1>{{news.title}}</h1>
+            </div>
+
+            <div class="image">
+                <ng-container *ngIf="news.newsImages.length==1; else swiper">
+                    <a>
+                        <img nz-image alt=" " nzSrc="{{news.photoUrlFullscreen}}">
+                    </a>
+                </ng-container>
+                <ng-template #swiper>
+                    <app-thumbs-swiper-images [images]="news.newsImages"></app-thumbs-swiper-images>
+                </ng-template>
+
+            </div>
+
+
+
+
+
+            <div class="meta">
+                <span class="source"> {{news.source}} </span>
+
+
+
+
+                <span class="date" nz-tooltip nzTooltipTitle="{{news.publishedAt  | amFromUtc | amLocal  | amDateFormat: 'h:mm a , Do MMMM  YYYY'  }}" nzTooltipColor="gold">
+                    <i nz-icon nzType="clock-circle" nzTheme="outline"></i> {{news.publishedAt | amFromUtc | amLocal | amTimeAgo }}</span>
+
+
+
+
+
+
+            </div>
+
+
+
+            <div class="details" [innerHTML]="sanitizer.bypassSecurityTrustHtml(news.content)">
+
+            </div>
+
+            <div>
+
+                <app-share-buttons [title]="news.title" [desc]="news.title" [img]="news.photoUrlFullscreen"> </app-share-buttons>
+
+            </div>
+            <div class="readMore" *ngIf="news">
+
+                <app-read-more exceptNewsId="{{news.id}}"></app-read-more>
+
+            </div>
+
+
+        </div>
+        <div class="side col-12 col-lg-4 ">
+
+            <app-editor-choice-inside></app-editor-choice-inside>
+            <app-our-services></app-our-services>
+        </div>
+
+
+    </div>
+
+</div>

@@ -1,0 +1,158 @@
+<app-divider text="{{ 'UsersList.UsersList' | translate }}" [icon]="'usergroup-add'">
+</app-divider>
+
+<nz-card>
+
+    <div class="row justify-content-md-center">
+
+        <div class="col-9 col-md-8 col-lg-auto mb-2">
+            <button class="me-1 w-100" nz-button nzType="primary" nzSize="large" nzShape="round" [routerLink]="['../../account/register']">
+                <i nz-icon nzType="plus-circle"></i>
+                {{ 'UsersList.CreateNewUser' | translate }}
+              </button>
+        </div>
+
+        <div class="col-3  col-md-4 col-lg-auto order-lg-last mb-2">
+            <button nz-button (click)="onReset()" nzSize="large" nzShape="round" class="me-1 w-100"> 
+                <i nz-icon nzType="redo" nzTheme="outline" ></i>
+                
+                 <span class="d-none d-md-inline-block">  {{ 'UsersList.Reset' | translate }}</span>
+        
+            </button>
+        </div>
+        <div class="col-12 col-md-12  col-lg-auto">
+
+            <nz-select class="me-1 w-100" nzSize="large" [(ngModel)]="SortSelectedValue" (ngModelChange)="onSortSelected($event)" nzAllowClear nzPlaceHolder=" {{ 'UsersList.selectSortWay' | translate }}">
+                <nz-option *ngFor="let option of sortOptions" [nzValue]="option" [nzLabel]="option.label"></nz-option>
+            </nz-select>
+
+
+        </div>
+
+    </div>
+
+</nz-card>
+
+
+
+
+<div>
+    <div>
+
+        <nz-table #userTable nzBordered [nzFrontPagination]="false" [nzShowPagination]="false" [nzData]="users" [nzScroll]="{ x: '900px' }">
+            <thead>
+                <tr>
+                    <th nzWidth="60px"></th>
+
+                    <th nzRight nzWidth="220px" nzCustomFilter>
+                        {{ 'UsersList.Name' | translate }}
+
+
+                        <nz-filter-trigger [(nzVisible)]="dropdownSearchVisible" [nzActive]="true" [nzDropdownMenu]="menu">
+                            <i nz-icon nzType="search"></i>
+                        </nz-filter-trigger>
+
+
+                    </th>
+                    <th nzWidth="200px"> {{ 'UsersList.Email' | translate }}
+                    </th>
+                    <th> {{ 'UsersList.LastActive' | translate }}</th>
+                    <th>{{ 'UsersList.DateCreated' | translate }}</th>
+                    <th nzWidth="120px"> {{ 'UsersList.Role' | translate }}
+                    </th>
+                    <th nzWidth="100px">{{ 'UsersList.Status' | translate }}</th>
+                    <th nzLeft *appHasRole='["Admin"]'> {{ 'UsersList.Administrate' | translate }}
+                    </th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let data of userTable.data">
+
+                    <tr>
+                        <td [nzExpand]="expandSet.has(data.id)" (nzExpandChange)="onExpandChange(data.id, $event)"></td>
+                        <td nzRight>
+                            <nz-badge [nzCount]="data.photos.length" style="margin-right: 24px;" (click)="MultipleImagePreview(data.photos)">
+
+                                <nz-avatar class="ms-2" nzSize="large" nzSrc="{{data.photoUrl || './assets/user.png'}}" alt="{{data.username}}"></nz-avatar>
+
+                            </nz-badge>
+                            {{data.knownAs}}
+                        </td>
+                        <td>{{data.email}}
+
+                        </td>
+                        <td>
+
+                            {{data.lastActive | amFromUtc | amLocal | amTimeAgo}}
+
+                        </td>
+                        <td>
+
+                            {{data.created | amFromUtc | amLocal | amDateFormat: 'Do MMMM YYYY'}}
+
+                        </td>
+                        <td nzAlign="center">
+
+
+                            <nz-tag *ngIf="data.role=='Admin'" [nzColor]="'red'"> {{ 'UsersList.Admin' | translate }}
+                            </nz-tag>
+                            <nz-tag *ngIf="data.role=='Editor'" [nzColor]="'blue'"> {{ 'UsersList.Editor' | translate }}
+                            </nz-tag>
+                            <nz-tag *ngIf="data.role=='Author'" [nzColor]="'gold'"> {{ 'UsersList.Author' | translate }}
+                            </nz-tag>
+                            <nz-tag *ngIf="data.role=='Contributor'" [nzColor]="'green'"> {{ 'UsersList.Contributor' | translate }}
+                            </nz-tag>
+
+
+
+                        </td>
+                        <td nzAlign="center">
+                            <span *ngIf="data.status==true"> <nz-badge nzStatus="success" nzText="{{ 'UsersList.Active' | translate }}"></nz-badge>  </span>
+                            <span *ngIf="data.status==false">      <nz-badge nzStatus="error" nzText="{{ 'UsersList.Inactive' | translate }}"></nz-badge>
+                                 </span>
+                        </td>
+                        <td nzLeft *appHasRole='["Admin"]'>
+                            <a (click)="showAdminControllerModal(data)"><i nz-icon nzType="setting" nzTheme="outline"></i>
+                            <nz-divider nzType="vertical"></nz-divider>{{ 'UsersList.Setting' | translate }}
+                          </a>
+                        </td>
+
+                    </tr>
+                    <tr [nzExpand]="expandSet.has(data.id)">
+                        <span *ngIf="data.introduction">{{ data.introduction }}</span>
+                        <span *ngIf="!data.introduction">  No Introduction </span>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </nz-table>
+
+
+    </div>
+
+</div>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+    <div class="ant-table-filter-dropdown">
+        <div class="search-box">
+            <input type="text" nz-input placeholder="{{ 'UsersList.inputSearch' | translate }}" (keyup.enter)="onSearch()" #search />
+            <button nz-button nzSize="small" nzType="primary" (click)="onSearch()" class="search-button">{{ 'UsersList.Search' | translate }}</button>
+            <button nz-button nzSize="small" (click)="onReset()">{{ 'UsersList.Reset' | translate }}</button>
+        </div>
+    </div>
+</nz-dropdown-menu>
+
+<div nz-row>
+    <div nz-col nzSpan="16">
+
+
+
+        <div class="d-flex justify-content-center mt-4" *ngIf="pagination">
+
+            <app-pager [pageSize]="pagination.itemsPerPage" [totalCount]="pagination.totalItems" [totalPages]="pagination.totalPages" [pageIndex]="pagination.currentPage" (PageIndexChange)="onPageIndexChange($event)" (PageSizeChange)="onPageSizeChange($event)">
+            </app-pager>
+        </div>
+
+    </div>
+
+</div>

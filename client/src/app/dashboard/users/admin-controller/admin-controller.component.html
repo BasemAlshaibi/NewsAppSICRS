@@ -1,0 +1,94 @@
+<app-divider text="{{ 'AdminController.AdminController' | translate }}" [icon]="'setting'">
+</app-divider>
+<div *ngIf="userData">
+
+    <form nz-form [formGroup]="AdminControllerForm" (ngSubmit)="submitForm()">
+
+        <nz-form-item>
+
+            <nz-form-label class="text-end" nzFor="email" [nzXs]="{ span: 24 }" [nzMd]="{ span: 4 }" [nzLg]="{ span: 8 }" nzRequired>{{ 'AdminController.Email' | translate }}</nz-form-label>
+
+
+            <nz-form-control [nzXs]="{ span: 24 }" [nzMd]="{ span: 18 }" [nzLg]="{ span: 14 }" nzHasFeedback nzValidatingTip="{{ 'AdminController.Validating' | translate }}" [nzErrorTip]="emailErrorTpl">
+                <input nzSize="large" nz-input formControlName="email" id="email" placeholder="{{ 'AdminController.PleaseInputEmail' | translate }}" />
+                <ng-template #emailErrorTpl let-control>
+                    <ng-container *ngIf="control.hasError('required')">{{ 'AdminController.PleaseInputEmail' | translate }}</ng-container>
+                    <ng-container *ngIf="control.hasError('duplicated')">{{ 'AdminController.EmailAlreadyAddedRegistered' | translate }}</ng-container>
+                    <ng-container *ngIf="control.hasError('pattern')">{{ 'AdminController.InvalidEmailFormat' | translate }}</ng-container>
+
+                </ng-template>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+
+            <nz-form-label class="text-end" nzFor="knownAs" [nzXs]="{ span: 24 }" [nzMd]="{ span: 4 }" [nzLg]="{ span: 4 }">{{ 'AdminController.knownAs' | translate }}</nz-form-label>
+
+
+            <nz-form-control [nzXs]="{ span: 24 }" [nzMd]="{ span: 18 }" [nzLg]="{ span: 14 }">
+                <input nzSize="large" nz-input formControlName="knownAs" id="knownAs" placeholder="{{ 'AdminController.EnterNickName' | translate }}" />
+
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label class="text-end" [nzXs]="{ span: 4 }" [nzLg]="{ span: 4 }">{{ 'AdminController.Gender' | translate }}</nz-form-label>
+            <nz-form-control [nzXs]="{ span: 16 }" [nzLg]="{ span: 14 }">
+                <nz-radio-group nzButtonStyle="solid" formControlName="gender" nzSize="large">
+                    <label nz-radio-button nzValue="male">{{ 'AdminController.Male' | translate }}</label>
+                    <label nz-radio-button nzValue="female">{{ 'AdminController.Female' | translate }}</label>
+                </nz-radio-group>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label class="text-end" [nzXs]="{ span: 24 }" [nzMd]="{ span: 4 } " [nzLg]="{ span: 4 } ">{{ 'AdminController.Role' | translate }}</nz-form-label>
+            <nz-form-control [nzXs]="{ span: 24 }" [nzLg]="{ span: 18 }">
+                <nz-radio-group nzButtonStyle="solid" formControlName="role" nzSize="large">
+
+
+                    <label nz-radio-button nzValue="Admin" nz-tooltip nzTooltipColor="red" nzTooltipTitle="{{ 'AdminController.AdminDescr' | translate }}">{{ 'AdminController.Admin' | translate }}</label>
+
+                    <label nz-radio-button nzValue="Editor" nz-tooltip nzTooltipColor="#2db7f5" nzTooltipTitle="{{ 'AdminController.EditorDescr' | translate }}">{{ 'AdminController.Editor' | translate }}</label>
+
+
+                    <label nz-radio-button nzValue="Author" nz-tooltip nzTooltipColor="gold" nzTooltipTitle="{{ 'AdminController.AuthorDescr' | translate }}">{{ 'AdminController.Author' | translate }}</label>
+
+
+                    <label nz-radio-button nzValue="Contributor" nz-tooltip nzTooltipColor="green" nzTooltipTitle="{{ 'AdminController.ContributorDescr' | translate }}">
+                        {{ 'AdminController.Contributor' | translate }}</label>
+                </nz-radio-group>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label class="text-end" [nzXs]="{ span: 4 }" [nzLg]="{ span: 4 }"> {{ 'AdminController.Status' | translate }}</nz-form-label>
+            <nz-form-control [nzXs]="{ span: 16 }" [nzLg]="{ span: 14 }">
+                <nz-radio-group nzButtonStyle="solid" formControlName="status" nzSize="large">
+                    <label nz-radio-button [nzValue]="true"> {{ 'AdminController.Active' | translate }}</label>
+                    <label nz-radio-button [nzValue]="false"> {{ 'AdminController.Inactive' | translate }}</label>
+                </nz-radio-group>
+            </nz-form-control>
+
+
+
+
+
+        </nz-form-item>
+
+
+        <div *nzModalFooter>
+            <button nz-button nzType="default" (click)="Cancel()"> {{ 'AdminController.Cancel' | translate }}</button>
+            <button nz-button nzType="primary" type="submit" (click)="submitForm()" [disabled]="!AdminControllerForm.valid"> {{ 'AdminController.Save' | translate }}</button>
+
+            <!-- [disabled]="!AdminControllerForm.valid" 
+            [disabled]="!editForm.dirty"
+            -->
+
+        </div>
+
+
+
+
+    </form>
+
+</div>

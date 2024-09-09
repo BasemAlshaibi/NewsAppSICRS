@@ -1,0 +1,46 @@
+<div class="container mt-3">
+
+    <div class="row">
+
+        <div class="col-12 col-lg-6 mb-3" *ngIf="firstNews">
+
+            <div class="first-news">
+                <img src="{{firstNews?.photoUrlFullscreen}}" alt="">
+
+                <div class="category" [routerLink]="['category/', firstNews.categoryId]">{{firstNews.category}}</div>
+
+                <div class="title" [routerLink]="['./news/', firstNews.id]">
+                    <a>{{firstNews.title}}</a>
+                </div>
+                d
+            </div>
+
+        </div>
+
+        <div class="col-12 col-lg-6" *ngIf="otherNews">
+            <div class="row">
+                <div class="col-6 h-50 mb-3" *ngFor="let news of otherNews">
+
+                    <div class="other-news">
+
+                        <img src="{{news?.photoUrlThumbnail || './assets/user.png'}}" alt=" ">
+                        <div class="category" [routerLink]="['category/', news.categoryId]">{{news.category}}</div>
+
+                        <div [routerLink]="['./news/', news.id]" class="title">
+
+                            <a>{{news.title}}</a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

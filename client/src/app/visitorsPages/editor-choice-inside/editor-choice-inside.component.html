@@ -1,0 +1,39 @@
+<div class="editor-choice-inside mt-5 mt-lg-0" *ngIf="newsList">
+
+
+    <!-- <div class="editor-choice-inside-heading">
+        <h4 class="name-editor-choice-inside-heading"><a>  Spotlight</a></h4>
+
+
+    </div> -->
+
+    <app-section-heading [title]="'Spotlight'" [removeReadMore]="true">
+    </app-section-heading>
+
+
+    <div class="editor-choice-inside-news mt-3">
+
+        <div class="news" *ngFor="let news of newsList">
+
+            <img src="{{news.photoUrlThumbnail || './assets/user.png'}}" alt="">
+
+            <div>
+                <div class="title" (click)="goToNews(news.id)">
+
+                    <!-- السطر السابق بحاجة لمعالجة -->
+
+
+                    <a> {{news.title | truncate : 80  }}</a>
+
+                </div>
+                <div class="time"> <i nz-icon nzType="clock-circle" nzTheme="outline"></i> {{news.publishedAt | amFromUtc | amLocal | amTimeAgo }}
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>

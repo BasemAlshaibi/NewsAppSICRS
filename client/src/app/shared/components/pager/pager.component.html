@@ -1,0 +1,7 @@
+<nz-pagination [(nzPageIndex)]="pageIndex" [nzTotal]="totalCount" [(nzPageSize)]="pageSize" [nzShowTotal]="rangeAndTotalTemplate" nzShowSizeChanger nzShowQuickJumper (nzPageIndexChange)="onPageIndexChange($event)" (nzPageSizeChange)="onPageSizeChange($event)"
+    [nzPageSizeOptions]="[5, 20, 30, 40]">
+</nz-pagination>
+
+<ng-template #rangeAndTotalTemplate let-range="range" let-total>
+    {{ range[1] }}-{{ range[0] }} from {{ total }} Item
+</ng-template>

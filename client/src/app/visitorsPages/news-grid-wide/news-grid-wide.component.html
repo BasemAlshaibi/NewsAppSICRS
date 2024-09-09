@@ -1,0 +1,50 @@
+<div *ngIf="CategoryNews">
+
+
+    <app-section-heading [title]="CategoryNews.name" [url]="'category/'" [id]="CategoryNews.id">
+    </app-section-heading>
+
+    <div class="category-wide">
+
+        <div class="category-wide-news mt-3">
+
+            <div class="row">
+                <div class="col-12 col-lg-6 mb-3">
+                    <div class="first-news">
+                        <img src="{{CategoryNews.news[0].photoUrlFullscreen}}" alt=" ">
+                        <div class="title" [routerLink]="['./news/', CategoryNews.news[0].id]"> <a>{{CategoryNews.news[0].title}}</a>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+
+                    <div class="other-news" *ngFor="let news of CategoryNews.news.slice(1)">
+                        <img src="{{news.photoUrlThumbnail}}" alt=" ">
+                        <div>
+                            <div class="title" [routerLink]="['./news/', news.id]">
+                                <a>{{news.title}}</a> </div>
+                            <div class="time">
+                                <i nz-icon nzType="clock-circle" nzTheme="outline"></i> {{news.publishedAt | amFromUtc | amLocal | amTimeAgo }} </div>
+
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,172 @@
+     /****/
+     
+     .services-content {
+         display: flex;
+         //   align-items: center;
+         //  justify-content: center;
+         flex-direction: column;
+         //width: 100%;
+     }
+     
+     .service {
+         height: 90px;
+         width: 100%;
+         overflow: hidden;
+         margin-bottom: 10px;
+         position: relative;
+         background-repeat: no-repeat;
+         background-size: 100% 90px;
+         width: 100%;
+         border-radius: 8px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+     }
+     
+     .overlay {
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         height: 100%;
+         width: 100%;
+     }
+     
+     .service:nth-child(1) {
+         background-image: url(../../../assets/images/HasadAljanub.png);
+     }
+     
+     .HasadAljanub {
+         background-image: linear-gradient(to top left, #3d55ef -30%, #0000 310%);
+     }
+     
+     .service:nth-child(2) {
+         background-image: url(../../../assets/images/ShuhadaAljanub.png);
+     }
+     
+     .ShuhadaAljanub {
+         background-image: linear-gradient(to top left, darkcyan -30%, #0000 310%);
+     }
+     
+     .service:nth-child(3) {
+         background-image: url(../../../assets/images/SouthLandmarks.png);
+     }
+     
+     .SouthLandmarks {
+         background-image: linear-gradient(to top left, darkorchid -30%, #0000 310%);
+     }
+     
+     .service:nth-child(4) {
+         background-image: url(../../../assets/images/SqourNews.png);
+     }
+     
+     .SqourNews {
+         background-image: linear-gradient(to top left, #F76E11 -30%, #0000 310%);
+     }
+     
+     .service:nth-child(5) {
+         background-image: url(../../../assets/images/TrendAljanub.png);
+     }
+     
+     .TrendAljanub {
+         background-image: linear-gradient(to top left, #293462 -30%, #0000 310%);
+     }
+     
+     .service:nth-child(6) {
+         background-image: url(../../../assets/images/SqourAljanub_EN.png);
+     }
+     
+     .SqourAljanub_EN {
+         background-image: linear-gradient(to top left, #980F5A -30%, #0000 310%);
+     }
+     
+     .service:nth-child(7) {
+         background-image: url(../../../assets/images/SqourSport.png);
+     }
+     
+     .SqourSport {
+         background-image: linear-gradient(to top left, #139487 -30%, #0000 310%);
+     }
+     
+     .title {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         padding: 10%;
+         z-index: 10;
+         width: 100%;
+     }
+     
+     .serviceName {
+         display: block;
+         font-size: 1.17em;
+         margin-block-start: 1em;
+         margin-block-end: 1em;
+         margin-inline-start: 0px;
+         margin-inline-end: 0px;
+         font-weight: bold;
+         color: #fff;
+         text-shadow: 2px 2px 7px #373a3a;
+     }
+     
+     .serviceImgThumb {
+         background-color: #ffffff4a;
+         width: 75px;
+         height: 75px;
+         flex: none;
+         padding-left: 5px;
+         padding-right: 5px;
+         font-weight: 500;
+         color: #fff;
+         font-size: 12px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 50%;
+         background-size: 75px;
+         box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+     }
+     
+     .HasadAljanubImgThumb {
+         background-image: url("https://pbs.twimg.com/profile_images/1449781391458250755/f6JtQ5HK_400x400.jpg");
+     }
+     
+     .ShuhadaAljanubImgThumb {
+         background-image: url("https://pbs.twimg.com/profile_images/1452659554358075399/vRHBWsHk_400x400.jpg");
+     }
+     
+     .SouthLandmarksImgThumb {
+         background-image: url("https://pbs.twimg.com/profile_images/1526283081501622274/eaSlOWRf_400x400.jpg");
+     }
+     
+     .SqourNewsImgThumb {
+         background-image: url("https://pbs.twimg.com/profile_images/1505212578280185862/9QG8dVW0_400x400.jpg");
+     }
+     
+     .TrendAljanubImgThumb {
+         background-image: url("https://pbs.twimg.com/profile_images/1437899137547128834/vu7zxn4R_400x400.jpg");
+     }
+     
+     .SqourAljanubENImgThumb {
+         background-image: url("https://pbs.twimg.com/profile_images/1448657262424498177/2XJQyPsy_400x400.jpg");
+     }
+     
+     .SqourSportImgThumb {
+         background-image: url("https://pbs.twimg.com/profile_images/1476642723482542082/w9dKR_Y8_400x400.jpg");
+     }
+     
+     @media (min-width: 768px) and (max-width: 1192px) {
+         .services-content {
+             flex-direction: row;
+             flex-wrap: wrap;
+             justify-content: space-between;
+         }
+         .service {
+             width: 45%;
+         }
+         .service:last-child {
+             display: none;
+         }
+     }

@@ -1,0 +1,28 @@
+<div *ngIf="removeReadMore; else elseBlock" class="category-wide-heading">
+
+    <h3 class="name-category-wide-heading"><a>{{title}}</a></h3>
+
+    <h4 class="readMore-category-wide-heading">
+        <a></a>
+    </h4>
+
+
+
+</div>
+<ng-template #elseBlock>
+
+    <div class="category-wide-heading">
+
+
+        <h3 *ngIf="id" class="name-category-wide-heading"><a [routerLink]="[url,id]">{{title}}</a></h3>
+
+        <h4 *ngIf="id" class="readMore-category-wide-heading"><a [routerLink]="[url, id]">Read more</a></h4>
+
+
+        <h3 *ngIf="!id" class="name-category-wide-heading"><a [routerLink]="[url]">{{title}}</a></h3>
+
+        <h4 *ngIf="!id" class="readMore-category-wide-heading"><a [routerLink]="[url]">  Read more</a></h4>
+
+    </div>
+
+</ng-template>

@@ -1,0 +1,36 @@
+<div style="min-height: 50px;" infiniteScroll (scrolled)="onScrollDown($event)" [infiniteScrollDisabled]="blockInfiniteScroll" [infiniteScrollDistance]="1" [infiniteScrollThrottle]="500">
+
+    <div class="header" *ngIf="newsList">
+        <div class="divider">
+
+
+            <app-divider [title]="'Read more'" [url]="'./'"></app-divider>
+
+
+
+
+
+
+
+            <div class="read-more-news">
+                <swiper [config]="config" dir="ltr" class="mySwiper">
+                    <ng-template swiperSlide *ngFor="let news of newsList">
+
+                        <div class="news">
+
+                            <img src="{{news.photoUrlThumbnail}}" alt="">
+                            <div class="category" [routerLink]="['../../category/',news.categoryId]">{{news.category}}</div>
+
+                            <div class="title" [routerLink]="['../', news.id]">
+                                <a> {{news.title | truncate }}</a>
+                            </div>
+                        </div>
+                    </ng-template>
+                </swiper>
+                <div class="swiper-pagination"></div>
+
+            </div>
+
+        </div>
+
+    </div>

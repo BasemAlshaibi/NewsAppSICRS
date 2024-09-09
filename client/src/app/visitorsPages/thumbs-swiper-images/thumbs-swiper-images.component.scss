@@ -1,0 +1,108 @@
+//@import "~swiper/css";
+//@import "~swiper/css/free-mode";
+//@import "~swiper/css/navigation";
+//@import "~swiper/css/thumbs";
+.swap-wrap {
+    height: 600px;
+    position: relative; // علشان النفجيشن 
+}
+
+.swap-wrap .swiper {
+    width: 100%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swap-wrap .swiper-slide {
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swap-wrap .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swap-wrap .mySwiper2 {
+    height: 80%;
+    width: 100%;
+}
+
+.swap-wrap .mySwiper {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+
+.swap-wrap .mySwiper .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+.swap-wrap .mySwiper .swiper-slide-thumb-active {
+    opacity: 1;
+}
+
+
+/*NAVIGATION*/
+
+.swap-wrap .swiper-button-next,
+.swap-wrap .swiper-button-prev {
+    position: absolute;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    //  left: auto; 
+    margin: 0px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    -webkit-background-size: 27px 15px;
+    background-size: 27px 15px;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22236pt%22%20height%3D%22512pt%22%20viewBox%3D%220%200%20236%20512%22%3E%0A%20%20%3Cdefs/%3E%0A%20%20%3Cpath%20d%3D%22M0%2020.45c78.33%2078.63%20157.12%20156.81%20235.31%20235.59C157.05%20334.72%2078.34%20412.96%200%20491.56V20.45z%22/%3E%0A%3C/svg%3E%0A');
+}
+
+.swap-wrap .swiper-button-next:after,
+.swap-wrap .swiper-button-prev:after {
+    display: none;
+}
+
+.swap-wrap .swiper-button-next {
+    right: 40px;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+.swap-wrap .swiper-button-prev {
+    left: 40px;
+    top: 40%;
+    transform: translateY(-50%) rotate(180deg);
+}
+
+@media screen and (max-width: 750px) {
+    .swap-wrap {
+        height: 400px;
+    }
+}

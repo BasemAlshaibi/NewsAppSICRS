@@ -1,0 +1,14 @@
+<div class="Icon-Drawer-container position-absolute bottom-50 end-0">
+    <a (click)="open()"><i nz-icon nzType="setting" nzTheme="fill"></i></a>
+</div>
+
+
+
+
+<nz-drawer [nzClosable]="false" [nzVisible]="visible" nzPlacement="right" nzTitle="Basic Drawer" (nzOnClose)="close()">
+    <ng-container *nzDrawerContent>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+    </ng-container>
+</nz-drawer>

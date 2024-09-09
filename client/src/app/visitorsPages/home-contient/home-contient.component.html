@@ -1,0 +1,38 @@
+<app-marquee-news-bar></app-marquee-news-bar>
+
+
+<app-main-news></app-main-news>
+
+<app-editor-choice></app-editor-choice>
+
+
+<div class="container mt-4" *ngIf="CategoriesNewsList">
+    <div class="row">
+        <div class="col-12 col-xl-8 newsContainer">
+            <app-news-grid-wide [CategoryNews]="CategoriesNewsList[0]"></app-news-grid-wide>
+            <app-news-grid-wide [CategoryNews]="CategoriesNewsList[1]"></app-news-grid-wide>
+
+
+        </div>
+        <div class="col-12 col-xl-4">
+            <app-our-services></app-our-services>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container mt-4">
+    <div class="row" *ngIf="CategoriesNewsList">
+        <div class="col-12 col-md-6 col-xl-4" *ngFor="let categoryNews of CategoriesNewsList.slice(2)">
+
+            <app-news-grid-thin [CategoryNews]="categoryNews"></app-news-grid-thin>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+</div>

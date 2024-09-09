@@ -1,0 +1,75 @@
+ /// /* swiper */
+ /*
+.read-more.swiper {
+    width: 100%;
+    height: 90px;
+}
+*/
+ 
+ .read-more-news {
+     margin-top: 20px;
+     position: relative;
+ }
+ 
+ .read-more-news .news {
+     height: 200px;
+     width: 100%;
+     position: relative;
+     font-size: 1.1rem;
+     border-radius: 8px;
+     overflow: hidden;
+ }
+ 
+ .read-more-news .news img {
+     //  max-width: 100%;
+     // height: auto;
+     display: block;
+     height: 100%;
+     width: 100%;
+     object-fit: cover;
+ }
+ 
+ .read-more-news .news:before {
+     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, .4) 60%, #000000d9 100%);
+     position: absolute;
+     content: '';
+     width: 100%;
+     height: 100%;
+     left: 0;
+     top: 0;
+     right: 0;
+ }
+ 
+ .read-more-news .news .category {
+     position: absolute;
+     top: 8px;
+     right: 16px;
+     padding: 1px 10px;
+     background-color: #FDCD01;
+     border-radius: 8px;
+     font-size: 1rem;
+     cursor: pointer;
+ }
+ 
+ .read-more-news .news .title {
+     color: white;
+     // font-size: 20px;
+     position: absolute;
+     bottom: 3%;
+     left: 50%;
+     transform: translate(-50%, -10%);
+     text-align: center;
+     width: 80%;
+     text-shadow: rgb(0 0 0 / 60%) 0px 1px 3px;
+ }
+ /* If the screen size is 600px wide or less */
+ 
+ @media screen and (max-width: 750px) {
+     .read-more-news .news {
+         height: 350px;
+         margin-bottom: 30px;
+     }
+     .read-more-news .title {
+         font-size: 20px;
+     }
+ }

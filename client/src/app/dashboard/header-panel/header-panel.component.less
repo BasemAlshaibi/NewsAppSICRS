@@ -1,0 +1,60 @@
+@import "mixin";
+.themeMixin( {
+     :host {
+         
+        .app-header {
+            background: @layout-header-background;
+            height: 64px;
+        }
+        .header-trigger {
+            color: @text-color;
+        }
+        .trigger:hover {
+            color: #1890ff;
+        }
+    }
+}
+
+);
+
+ 
+
+
+:host {
+  //  display: flex;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    .header-trigger {
+        padding: 8px ;
+        cursor: pointer;
+        transition: all .3s, padding 0s;
+         height: 64px;
+        font-size: 14px;
+    }
+
+ 
+    
+    img {
+        max-height: 50px;
+        border: 2px solid rgb(255, 255, 255);
+        display: inline;
+        border-radius: 50%;
+    }
+    
+  
+    
+    nz-dropdown-menu ul li {
+        font-size: 20px;
+    }
+
+ 
+
+}
+
+
+
+
+ 
+

@@ -101,7 +101,8 @@ namespace API
 
 // must be after UseRouting and before UseEndpoints
 
-      //      app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowCredentials().AllowAnyOrigin().WithOrigins("https://localhost:4200"));
+      
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowCredentials().AllowAnyOrigin().WithOrigins("https://localhost:4200"));
 
             app.UseAuthentication();
 

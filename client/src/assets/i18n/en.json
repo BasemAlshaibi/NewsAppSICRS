@@ -1,0 +1,482 @@
+{
+    "headerPanel": {
+        "EditProfile": "Edit Profile",
+        "Logout": "Logout",
+        "Light": "Light",
+        "Dark": "Dark"
+    },
+    "SIDEBAR": {
+        "NewsDashboard": "News Dashboard",
+        "Dashboard": "Dashboard",
+        "Welcome": "Welcome",
+        "Monitor": "Monitor",
+        "UserManagement": "User Management",
+        "AddNewUser": "Add New User",
+        "UsersList": "Users List",
+        "NewsAndCategories": "News And Categories",
+        "ManageCategories": "Manage Categories",
+        "ManageNews": "Manage News",
+        "AddNewNews": "Add New News",
+        "ArticlesAndWriters": "Articles And Writers",
+        "ManageArticles": "Manage Articles",
+        "AddNewArticle": "Add New Article",
+        "ManageWriters": "Manage Writers",
+
+        "Multimedia": "Multimedia",
+        "ManageVideo": "Manage Video",
+        "AddNewVideo": "Add New Video",
+        "ManageCategoriesVideo": "Manage Categories Video",
+
+        "ManageGallary": "Manage Gallary",
+        "AddNewGallary": "Add New Gallary",
+        "ManageCategoriesGallary": "Manage Categories Gallary"
+
+    },
+    "UsersList": {
+        "UsersList": "Users List",
+        "Sort": "Sort",
+        "selectSortWay": "select Sort Way",
+        "Name": "Name",
+        "Email": "Email",
+        "LastActive": "Last Active",
+        "DateCreated": "Date Created",
+        "Status": "Status",
+        "Administrate": "Administrate",
+        "Setting": "Setting",
+        "Role": "Role",
+        "Admin": "Admin",
+        "Editor": "Editor",
+        "Author": "Author",
+        "Contributor": "Contributor",
+        "Active": "Active",
+        "Inactive": "Inactive",
+
+        "Search": "Search",
+        "inputSearch": " search Name",
+        "CreateNewUser": "Create New User",
+        "Reset": "Reset"
+    },
+    "AdminController": {
+
+        "AdminController": "Admin Controller",
+        "CreateNewUser": "Create New User",
+        "knownAs": "knownAs",
+        "EnterNickName": "Enter Nick Name",
+        "NickNameTip": "What do you want other to call him",
+        "PleaseInputNickName": "Please input his/her Nick Name",
+
+
+        "Email": "Email",
+        "PleaseInputEmail": "Please input his/her Email Address!",
+        "InvalidEmailFormat": "Invalid Email Address Format",
+        "Validating": "Validating...",
+        "EmailAlreadyAddedRegistered": "Email Address is already registered!",
+
+
+
+        "Password": "Password",
+        "PasswordEnter": "Enter  Password",
+
+        "PasswordRequired": "Please input his/her Password!",
+        "PasswordMinlength": "Password must be at least 6 characters in length",
+        "PasswordPattern": "Password must contain at least one uppercase, one lowercase,one special characters and one number",
+
+
+        "ConfirmPassword": "Confirm Password",
+        "ConfirmPasswordEnter": "Enter Confirm Password",
+        "ConfirmPasswordRequired": "Please confirm his/her password!",
+
+        "PasswordInconsistent": "Password is inconsistent!",
+
+        "Gender": "Gender",
+        "Male": "Male",
+        "Female": "Female",
+
+        "Role": "Role",
+        "Admin": "Admin",
+        "AdminDescr": "can do everything including complete power over news, Artcles ,pages, vote, users...",
+        "Editor": "Editor",
+        "EditorDescr": "is able to publish news/article, manage posts/article, as well as manage other people’s posts/article.",
+        "Author": "Author",
+        "AuthorDescr": " can write and publish own news and article.",
+        "Contributor": "Contributor",
+        "ContributorDescr": "can write own posts/article but can’t publish them",
+
+        "Status": "Status",
+        "Active": "Active",
+        "Inactive": "Inactive",
+        "Save": "Save",
+        "Cancel": "Cancel",
+        "Rest": "Rest",
+        "RegistrationDone": "Registration is done"
+
+    },
+    "EditProfile": {
+        "EditProfile": "Edit Profile",
+        "YourProfile": "Your profile",
+        "Photos": "Photos",
+        "preferences": "preferences",
+        "knownAs": "knownAs",
+        "knownAsPlaceholder": "Enter Your knownAs!",
+        "Gender": "Gender",
+        "Male": "Male",
+        "Female": "Female",
+        "Introduction": "Introduction",
+        "IntroductionPlaceholder": "write any thing About you"
+    },
+    "Categories": {
+        "CategoriesManagement": "Categories Management",
+        "SaveYourChanges": "Save Your Changes",
+        "Add": "Add Category",
+        "Rest": "Rest",
+        "Name": "Name",
+        "Status": "Status",
+        "Cancel": "Cancel",
+        "Order": "Order",
+        "clickToEdit": "click to edit category name",
+        "EnterCategoryName": "Enter Category Name",
+        "EnterCategoryNametipTitle": "press Enter then  Save Your Changes",
+        "videoCategoriesManagement": "Video Categories Management",
+        "galleryCategoriesManagement": "Gallery Categories Management"
+
+    },
+    "NEWSLIST": {
+        "NewsList": "News List",
+        "CreateNewNews": "Create New News",
+        "Search": "Search",
+        "inputSearch": "input search",
+        "Reset": "Reset",
+        "Sort": "Sort",
+        "selectSortWay": "select Sort Way",
+        "Fliters": "Fliters",
+        "selectCategory": "select Category",
+        "SelectCreatedBy": "Select Created By",
+
+        "Date": "Date",
+        "Published": "Published",
+        "Draft": "Drafts",
+        "Scheduled": "Scheduled",
+        "PendingReview": "Pending Review",
+        "Rejected": "Rejected",
+        "Image": "Image",
+        "Title": "Title",
+        "EditorChoice": "Editor's Choice",
+        "ShowInMain": "Show In Main",
+        "BreakingOrImportant": "Breaking Or Important",
+        "PublishModification": "Publish/Modification",
+        "Category": "Category",
+        "Views": "Views",
+        "Action": "Action",
+        "CreatedBy": "Created By",
+        "publishOn": "publish On",
+        "LastUpdatedBy": "Last Updated By",
+        "LastUpdatedOn": "Last Updated On",
+        "AreYouSureDelete": "Are you sure delete this News?",
+        "DeleteNews": "Delete news",
+        "AreYouSurepPermanentlyDelete": "Are you sure permanently delete Draft news?",
+        "PermanentlyDeleteDraft": "Permanently delete Draft news",
+        "EditNews": "Edit news",
+        "DisplayNewsOnWebsite": "Display news on website",
+        "AreYouSurePublishThisNewsRightNow": "Are you sure Publish  this news right now ?",
+        "PublishNewsRightNow": "Publish news right now",
+        "AreYouSureGiveApproval": "Are you sure give approval to this news and  Publish it right now ?",
+        "NewsApproval": "News approval",
+        "AreYouSureRestore": "Are you sure Restore this News?",
+        "RejectedSuccess": "News moved to trash successfully",
+        "RestoreSuccess": "News Restore successfully",
+        "PublishNowSuccess": "News Published  successfully",
+        "ApproveSuccess": "News Approved and  Published successfully",
+        "DeleteDraftSuccess": "permanently delete Draft news successfully"
+
+    },
+    "NewsForm": {
+        "CreateNewNews": "Create New News",
+        "EditNews": "Edit News",
+        "Title": "Title",
+        "EnterTitle": "Enter Title",
+        "PleaseInputTitle": "Please input title",
+        "maxLengthTitle": "Please shorten this text to 65 characters or less",
+        "Summary": "Summary",
+        "EnterSummary": "Enter Summary",
+        "SummaryErrorTpl": "Please shorten this text to 200 characters or less",
+        "Category": "Category",
+        "SelectCategory": "Select Category",
+        "PleaseSelectCategory": "Please select category",
+        "Source": "Source",
+        "EnterSource": "Enter Source",
+        "PleaseInputSource": "Please input source",
+        "Content": "Content",
+        "EnterContent": "Enter Content",
+        "PleaseInputContent": "Please input Content",
+
+        "PublishingOptions": "Publishing Options",
+        "Published": "Published",
+        "Post": "Post",
+        "Scheduling": "Scheduling",
+        "Draft": "Draft",
+        "Pending": "Pending",
+        "DateAndTime": "Date and Time",
+        "PleaseSchedulingDate": "Please scheduling Date in the future",
+        "Distribution": "Distribution",
+        "EditorChoice": "Editor's Choice",
+        "ShowInMain": "Show In Main",
+        "BreakingOrImportant": "Breaking Or Important",
+        "DurationToShowBreakingNews": "Duration To Show Breaking News ",
+        "Submit": "Save",
+        "Reset": "Reset",
+        "Cancel": "Cancel",
+        "AddedSuccessfully": "news Added successfully",
+        "UpdatedSuccessfully": "news updated successfully"
+    },
+    "imageUploader": {
+        "Upload": "Upload",
+        "isJpgOrPng": "You can only upload JPG or Png file!",
+        "isLt2M": "Image must smaller than 2MB!",
+        "modalConfirmDelete": "Are you sure delete this Image?",
+        "Yes": "Yes",
+        "No": "No",
+        "SuccessfullyDeletedImage": "Successfully deleted  image",
+        "uploadedSuccessfully": "{{fileName}} file uploaded successfully",
+        "uploadedFailed": "{{fileName}} file upload failed."
+    },
+    "ARTICLESLIST": {
+        "ArticlesList": "Articles List",
+        "CreateNewArticle": "Create New Article",
+        "Search": "Search",
+        "inputSearch": "input search",
+        "Reset": "Reset",
+        "Sort": "Sort",
+        "selectSortWay": "select Sort Way",
+        "Fliters": "Fliters",
+        "selectWriter": "select Writer",
+        "SelectCreatedBy": "Select Created By",
+
+        "Date": "Date",
+        "Published": "Published",
+        "Rejected": "Rejected",
+
+        "Image": "Image",
+        "Title": "Title",
+        "By": "By..",
+
+        "PublishModification": "Publish/Modification",
+        "Views": "Views",
+
+        "Status": "Status",
+        "Action": "Action",
+
+
+        "CreatedBy": "Created By",
+        "publishOn": "publish On",
+        "LastUpdatedBy": "Last Updated By",
+        "LastUpdatedOn": "Last Updated On",
+
+
+        "AreYouSureDelete": "Are you sure delete this Article?",
+        "DeleteArticle": "Delete Article",
+
+        "EditArticle": "Edit Article",
+        "DisplayArticleOnWebsite": "Display Article on website",
+
+        "AreYouSureRestore": "Are you sure Restore this Article?",
+        "RestoreArticle": "Restore Article",
+        "RejectedSuccess": "Article moved to trash successfully",
+        "RestoreSuccess": "Article Restore successfully"
+
+    },
+    "ARTICLEForm": {
+        "CreateNewArticle": "Create New Article",
+        "EditArticle": "Edit Article",
+        "Title": "Title",
+        "EnterTitle": "Enter Title",
+        "PleaseInputTitle": "Please input title",
+
+        "Summary": "Summary",
+        "EnterSummary": "Enter Summary",
+        "SummaryErrorTpl": "Please shorten this text to 200 characters or less ",
+
+        "Writer": "Writer",
+        "SelectWriter": "Select Writer",
+        "PleaseSelectCategory": "Please select Writer",
+
+        "Content": "Content",
+        "EnterContent": "Enter Content",
+        "PleaseInputContent": "Please input Content",
+
+        "PublishingOptions": "Publishing Options",
+        "Published": "Published",
+        "Rejected": "Rejected",
+
+        "Submit": "Save",
+        "Reset": "Reset",
+        "Cancel": "Cancel",
+        "AddedSuccessfully": "Article Added successfully",
+        "UpdatedSuccessfully": "Article updated successfully"
+    },
+    "dropdownAddWriter": {
+        "AddNewWriter": "Add New Writer",
+        "Validating": "Validating...",
+        "EnterWriterName": "Enter Writer Name here",
+        "PleaseEnterWriterName": "Please input Writre's name ",
+        "WriterAlreadyAdded": "This Writer is already added",
+        "maxlengthValidating": "Writre's name must be at most 15 characters in length",
+        "UploadImage": "Upload Image",
+        "SaveWriter": "Save Writer"
+    },
+    "WRITERSLIST": {
+        "WriterManagement": "Writers Management",
+        "CreateNewWriter": "Create New Writer",
+        "Search": "Search",
+        "inputSearch": "input search",
+        "Reset": "Reset",
+
+
+        "Sort": "Sort",
+        "selectSortWay": "select Sort Way",
+
+        "Active": "Active",
+        "Inactive": "Inactive",
+
+
+        "Image": "Image",
+        "Name": "Name",
+        "PublishModification": "Publish/Modification",
+        "Status": "Status",
+        "Action": "Action",
+
+
+        "CreatedBy": "Created By",
+        "createdAt": "createdAt",
+        "LastUpdatedBy": "Last Updated By",
+        "LastUpdatedOn": "Last Updated On",
+
+
+        "AreYouSureDelete": "Are you sure delete this Writer?",
+        "DeleteWriter": "Delete Writer",
+
+        "EditWriter": "Edit Writer",
+
+        "AreYouSureRestore": "Are you sure Restore this Writer?",
+        "RestoreWriter": "Restore Writer",
+        "RejectedSuccess": "Writer moved to trash successfully",
+        "RestoreSuccess": "Article Restore successfully"
+
+    },
+    "WriterForm": {
+
+        "AddNewWriter": "Add New Writer",
+        "EditWriter": "Edit Writer",
+        "Name": "Name",
+        "EnterWriterName": "Enter Writer Name here",
+
+        "Validating": "Validating...",
+        "PleaseEnterWriterName": "Please input Writre's name ",
+        "WriterAlreadyAdded": "This Writer is already added",
+        "maxlengthValidating": "Writre's name must be at most 15 characters in length",
+
+        "Status": "Status",
+        "Active": "Active",
+        "Inactive": "Inactive",
+
+        "Submit": "Save",
+        "Cancel": "Cancel",
+        "AddedSuccessfully": "Writre Added successfully",
+        "UpdatedSuccessfully": "Writre updated successfully"
+    },
+    "guards": {
+
+        "titleAddMode": "Want to finish your post later?",
+        "titleEditMode": "You have unsaved changes",
+        "contentAddMode": "Save it as a draft or you can continue editing it.",
+        "contentEditMode": "Do you want to save or discard them?",
+        "OkTextAddMode": "Save changes",
+        "OkTextEditMode": "Save as draft.",
+        "Discard": "Discard",
+        "successDraft": "Draft news Added successfully",
+        "successNewsUpdated": "news updated successfully",
+        "updateFailures": "update failures.. You make mistakes with Data"
+
+    },
+    "VIDEOandGALLERYLIST": {
+        "VideoList": " Videos List ",
+        "GalleryList": " Galleries List  ",
+        "CreateNewVideo": "Create New Video",
+        "CreateNewGallery": "Create New Gallery",
+        "Search": "Search",
+        "inputSearch": "input Search",
+        "VideoCategoriesManage": "Video Categories Manage",
+        "GalleryCategoriesManage": "Gallery Categories Manage",
+
+        "Reset": "Reset",
+        "Sort": "Sort",
+        "selectSortWay": "select Sort Way",
+        "selectCategory": "select Category",
+        "SelectCreatedBy": "Select Created By",
+        "Published": "Active",
+        "Rejected": "Inactive",
+        "Date": "Date",
+        "Image": "Image",
+        "Title": "Title",
+        "Video": "Video",
+        "Gallery": "Gallery",
+        "PublishModification": "Publish/Modification",
+        "Category": "Category",
+        "Status": "Status",
+        "Action": "Actions",
+        "VideoUrl": "Url",
+
+        "CreatedBy": "Created By",
+        "CreatedOn": "Created On",
+
+        "LastUpdatedBy": "Last Updated By",
+        "LastUpdatedOn": "Last Updated On",
+
+        "AreYouSureDelete": "Are you sure delete this Item?",
+        "Delete": "Delete",
+        "Edit": "Edit",
+        "DisplayOnWebsite": "Display On Website",
+        "AreYouSureRestore": "Are you sure Restore this Item?",
+        "Restore": "Restore",
+        "VideoRejectedSuccess": "Video moved to trash successfully",
+        "VideoRestoreSuccess": "Video Restore successfully",
+        "GalleryRejectedSuccess": "Gallery moved to trash successfully",
+        "GalleryRestoreSuccess": "Gallery Restore successfully"
+
+    },
+    "VEDIOandGALLERYForm": {
+        "CreateNewVideo": "Create New Video",
+        "EditVideo": "Edit Video",
+        "CreateNewGallery": "Create New Gallery",
+        "EditGallery": "Edit Gallery",
+        "Title": "Title",
+        "EnterTitle": "EnterTitle",
+        "PleaseInputTitle": "Please Input Title",
+
+        "VideoUrl": "Url",
+        "EnterUrl": "Enter Youtube  Url",
+        "PleaseInputUrl": "Please Input Youtube Url",
+        "patternUrl": "Please enter Youtube Url  in the correct format",
+        "Category": "Category",
+        "SelectCategory": "Select Category",
+        "PleaseSelectCategory": "Please select category",
+
+        "Description": "Description",
+        "EnterDescription": "Enter Description",
+        "PleaseInputDescription": "Please Input Description",
+
+        "VideoCover": "Video & It's Cover",
+
+        "PublishingOptions": "Publishing Options",
+
+        "Published": "Published",
+        "Rejected": "Rejected ",
+
+        "Submit": "Save",
+        "Reset": "Reset",
+        "Cancel": "Cancel",
+        "VideoAddedSuccessfully": "Video Added successfully",
+        "VideoUpdatedSuccessfully": "Video updated successfully",
+        "GalleryAddedSuccessfully": "Gallery Added successfully",
+        "GalleryUpdatedSuccessfully": "Gallery updated successfully"
+    }
+}

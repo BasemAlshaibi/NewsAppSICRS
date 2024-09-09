@@ -348,6 +348,7 @@ namespace API.Controllers
              return Ok(Categories);
 
         }
+        
         [HttpGet]
         [Route("~/api/GetCategoriesNewsWithSpec")]
         public async Task<ActionResult<IEnumerable<CategoryVistorsDto>>> GetCategoriesNewsWithSpec([FromQuery] CategoryParams categoryParams)

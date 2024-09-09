@@ -1,0 +1,487 @@
+{
+    "headerPanel": {
+        "EditProfile": "تعديل الملف الشخصي ",
+        "Logout": "تسجيل خروج",
+        "Light": "فاتح",
+        "Dark": "غامق"
+    },
+    "SIDEBAR": {
+        "NewsDashboard": "لوحة تحكم الاخبار",
+        "Dashboard": "التحكم",
+        "Welcome": "الترحيب",
+        "Monitor": "المراقبة",
+        "UserManagement": "إدارة المستخدمين",
+        "AddNewUser": "إضافة مستخدم جديد",
+        "UsersList": "قائمة المستخدمين",
+        "NewsAndCategories": "الأخبار والأقسام",
+        "ManageCategories": "إدارة الأقسام",
+        "ManageNews": "إدارة الأخبار",
+        "AddNewNews": "إضافة خبر جديد",
+        "ArticlesAndWriters": "المقالات والكتاب",
+        "ManageArticles": "إدارة المقالات",
+        "AddNewArticle": "إضافة مقالة جديدة",
+        "ManageWriters": "إدارة الكتّاب",
+        "Multimedia": "الوسائط",
+        "ManageVideo": "إدارة الفيديو",
+        "AddNewVideo": "إضافة فيديو جديد",
+        "ManageCategoriesVideo": "إدارة أقسام الفيديو",
+
+        "ManageGallary": "إدارة الصور",
+        "AddNewGallary": "إضافة صورة أو ألبوم",
+        "ManageCategoriesGallary": " إدارة أقسام الصور"
+    },
+    "UsersList": {
+        "UsersList": "قائمة المستخدمين",
+        "Sort": "فرز",
+        "selectSortWay": "أختر طريقة الفرز",
+
+        "Name": "الأسم",
+        "Email": "البريد الإلكتروني",
+        "LastActive": "آخر نشاط",
+        "DateCreated": "تأريخ الأنضمام",
+        "Status": "الحالة",
+        "Administrate": "الإدرة",
+        "Setting": "الأعدادات",
+        "Role": "الصلاحيات",
+        "Admin": "مسئول عام",
+        "Editor": "مدير تحرير",
+        "Author": "منشئ محتوى",
+        "Contributor": "مساهم",
+        "Active": "نشط",
+        "Inactive": "موقوف",
+
+        "Search": "بحث",
+        "inputSearch": "أبحث  بواسطة الأسم",
+        "CreateNewUser": "إنشاء مستخدم جديد",
+
+        "Reset": "Reset"
+
+    },
+    "AdminController": {
+
+        "AdminController": "تعديل في ملف المستخدم",
+        "CreateNewUser": "إنشاء مستخدم جديد",
+        "knownAs": "إسم معرف",
+        "EnterNickName": "أكتب اسم المعرف ",
+        "NickNameTip": "ماذا تريد أن يناديه الآخرون",
+        "PleaseInputNickName": "من فضلك أدخل أسم الشخص المطلوب أضافته",
+
+
+
+        "Email": "البريد الإلكتروني",
+        "PleaseInputEmail": "من فضلك قم بإدخال الإيميل للمستخدم الجديد",
+        "InvalidEmailFormat": "عنوان البريد الإلكتروني غير صالح",
+        "Validating": "جاري التحقق من عدم وجود البريد الإلكتروني مسبقا ..",
+        "EmailAlreadyAddedRegistered": "هذا البريد الألكتروني مسجل مسبقا!",
+
+
+
+        "Password": "كلمة المرور",
+        "PasswordEnter": "قم بإدخال كلمة المرور",
+
+        "PasswordRequired": "من فضلك قم بإدخال كلمة المرور",
+        "PasswordMinlength": " يجب ألا يقل طول كلمات المرور عن 6 أحرف",
+        "PasswordPattern": "يجب أن تحتوي كلمة المرور على الأقل على حرف كبير وحرف صغير ورقم ورمز",
+
+
+
+        "ConfirmPassword": "تأكيد كلمة المرور",
+        "ConfirmPasswordEnter": "قم بإدخال كلمة المرور مرة أخرى",
+        "ConfirmPasswordRequired": "إعادة إدخال كلمة المرور مطلوب",
+        "PasswordInconsistent": "كلمة المرور غير متطابقة!",
+
+        "Gender": "النوع",
+        "Male": "ذكر",
+        "Female": "أنثى",
+
+        "Role": "الصلاحيات",
+        "Admin": "مسئول ",
+        "AdminDescr": "يمكن أن يفعل كل شيء بما في ذلك السلطة الكاملة على الأخبار والمقالات والصفحات والتصويت والمستخدمين ...",
+        "Editor": "محرر",
+        "EditorDescr": "قادر على نشر وإدارة الأخبار / المقالات   وكذلك إدارة أخبار / مقالات الآخرين.",
+        "Author": "ناشر ",
+        "AuthorDescr": "يمكنه كتابة ونشر الأخبار والمقالات الخاصة فيه.",
+        "Contributor": "مساهم",
+        "ContributorDescr": "يمكنه كتابة الأخبار / المقالات الخاصة به ولكن لا يمكنه نشرها",
+
+        "Status": "الحالة",
+        "Active": "نشط",
+        "Inactive": "موقوف",
+        "Save": "حفظ",
+        "Cancel": "إلغاء",
+        "Rest": "تهيئة الحقول",
+        "RegistrationDone": "تم أضافة المستخدم بنجاح"
+
+    },
+    "EditProfile": {
+        "EditProfile": "تعديل الملف الشخصي",
+        "YourProfile": "ملفك الشخصي",
+        "Photos": "الصور",
+        "preferences": "التفضيلات",
+        "knownAs": "أسم المعرف",
+        "knownAsPlaceholder": "إدخل اسمك المعروف",
+        "Gender": "النوع",
+        "Male": "ذكر",
+        "Female": "أنثى",
+        "Introduction": "نبذة تعريفية",
+        "IntroductionPlaceholder": "أكتب نبذة قصيرة عنك"
+    },
+    "Categories": {
+        "CategoriesManagement": "إدارة الاقسام",
+        "SaveYourChanges": "حفظ التغييرات",
+        "Add": "إضافة قسم جديد",
+        "Rest": "Rest",
+        "Name": "إسم القسم",
+        "Status": "الحالة",
+        "Order": "الترتيب",
+        "Cancel": "خروج",
+        "clickToEdit": "أنقر لتحرير إسم القسم",
+        "EnterCategoryName": "أدخل اسم القسم",
+        "EnterCategoryNametipTitle": "قم بكتابة الأسم ثم أنقر زر موافق ثم قم بحقظ التغييرات بالأعلى",
+        "videoCategoriesManagement": "إدارة أقسام الفيديو",
+        "galleryCategoriesManagement": "إدارة أقسام الصور "
+    },
+    "NEWSLIST": {
+        "NewsList": "قائمة الأخبار",
+        "CreateNewNews": "إنشاء خبر جديد",
+        "Search": "بحث",
+        "inputSearch": "أبحث هنا  ",
+        "Reset": "Reset",
+        "Sort": "فرز",
+        "selectSortWay": "أختر طريقة الفرز",
+        "Fliters": "الفلاتر",
+        "selectCategory": "أختر التصنيف",
+        "SelectCreatedBy": "اختيار بواسطة المنشئ",
+        "Date": "المدى الزمني",
+        "Published": "الأخبار المنشورة",
+        "Draft": "المسودات",
+        "Scheduled": "المجدولة",
+        "PendingReview": "قيد المراجعة",
+        "Rejected": " المحذوفة",
+        "Image": "الصورة",
+        "Title": "العنوان",
+        "EditorChoice": "إختيار المحرر",
+        "ShowInMain": "عرض في الرئيسية",
+        "BreakingOrImportant": "عاجل أو هام ",
+        "PublishModification": "الأضافة / التعديل",
+        "Category": "التصنيف",
+        "Views": "القراءات",
+        "Action": "الإجراءات",
+        "CreatedBy": "أنشي بواسطة",
+        "publishOn": "نشر في",
+        "LastupdatedBy": "آخر تعديل بواسطة",
+        "LastUpdatedOn": "آخر تعديل تم في",
+        "AreYouSureDelete": "هل تؤكد نقل الخبر إلى سلة المهملات ؟",
+        "DeleteNews": "نقل الخبر إلى سلة المهملات",
+        "AreYouSurepPermanentlyDelete": "هل أنت متأكد من حذف مسودة الخبر نهائيًا؟",
+        "PermanentlyDeleteDraft": "حذف مسودة الخبر نهائيًا",
+        "EditNews": "تعديل الخبر",
+        "DisplayNewsOnWebsite": "عرض الخبر ",
+        "AreYouSurePublishThisNewsRightNow": "هل أنت متأكد من نشر هذا الخبر الآن؟",
+        "PublishNewsRightNow": "أنشر الخبر الآن",
+        "AreYouSureGiveApproval": "هل أنت متأكد من الموافقة على هذا الخبر ونشره الآن؟",
+        "NewsApproval": "الموافقة على الخبر",
+        "AreYouSureRestore": "هل أنت متأكد من استعادة هذه الخبر للنشر",
+        "RestoreNews": "أستعيد نشر الخبر",
+        "RejectedSuccess": "تم نقل الخبر إلى سلة المحذوفات بنجاح",
+        "RestoreSuccess": "تم استعادة نشر الخبر بنجاح",
+        "PublishNowSuccess": "تم نشر الخبر بنجاح",
+        "ApproveSuccess": "تم الموافقة على الخبر ونشره بنجاح",
+        "DeleteDraftSuccess": "تم حذف مسودة الخبر بشكل دائم بنجاح"
+    },
+    "NewsForm": {
+        "CreateNewNews": "إنشاء خبر جديد",
+        "EditNews": "تعديل الخبر",
+        "Title": "العنوان",
+        "EnterTitle": "إدخل العنوان",
+        "PleaseInputTitle": "من فضلك أدخل العنوان",
+        "maxLengthTitle": "من فضلك أختصر العنوان إلى 65 حرف أو أقل",
+        "Summary": "الملخص",
+        "EnterSummary": "إدخل الملخص",
+        "SummaryErrorTpl": "من فضلك أختصر الملخص إلى 200 حرف أو أقل ",
+        "Category": "القسم",
+        "SelectCategory": "أختار القسم",
+        "PleaseSelectCategory": "من فضلك أختار القسم",
+        "Source": "المصدر",
+        "EnterSource": "أدخل المصدر",
+        "PleaseInputSource": "من فضلك ادخل المصدر",
+
+        "Content": "المحتوى",
+        "EnterContent": "أدخل المحتوى",
+        "PleaseInputContent": "من فضلك أدخل محتوى الخبر",
+
+
+        "PublishingOptions": "خيارات النشر",
+
+        "Published": "منشور",
+        "Post": " النشر الان",
+        "Scheduling": "مجدول",
+        "Draft": "مسودة",
+        "Pending": "ترحيل للمراجعة",
+
+        "DateAndTime": "التاريخ والزمن",
+        "PleaseSchedulingDate": "أختر وقت في المستقبل",
+
+        "Distribution": "التوزيع",
+        "EditorChoice": "أختيار المحرر",
+        "ShowInMain": "إظهار في الرئيسية",
+        "BreakingOrImportant": "هام أو عاجل",
+        "DurationToShowBreakingNews": "وقت ظهوره كهام أو عاجل ",
+        "Submit": "حفظ",
+        "Reset": "تهيئة",
+        "Cancel": "خروج",
+        "AddedSuccessfully": "تم إضافة الخبر بنجاح",
+        "UpdatedSuccessfully": "تم حفظ التعديلات على الخبر بنجاح"
+    },
+    "imageUploader": {
+        "Upload": "تحميل صورة",
+        "isJpgOrPng": "يمكنك فقط تحميل ملف JPG أو Png!",
+        "isLt2M": "يجب أن يكون حجم الصورة أصغر من 2 ميغا بايت!",
+        "modalConfirmDelete": "هل أنت متأكد من حذف هذه الصورة؟",
+        "Yes": "نعم",
+        "No": "لا",
+        "SuccessfullyDeletedImage": "تم حذف الصورة بنجاح",
+        "uploadedSuccessfully": " {{fileName}} تم رفع الصورة بنجاح  ",
+        "uploadedFailed": "{{fileName}}  فشل تحميل الصورة"
+    },
+    "ARTICLESLIST": {
+        "ArticlesList": "قائمة المقالات",
+        "CreateNewArticle": "إنشاء مقال جديد",
+        "Search": "بحث",
+        "inputSearch": "أبحث هنا  ",
+        "Reset": "Reset",
+        "Sort": "فرز",
+        "selectSortWay": "أختر طريقة الفرز",
+        "Fliters": "الفلاتر",
+        "selectWriter": "أختر الكاتب",
+        "SelectCreatedBy": "اختيار بواسطة المنشئ",
+        "Date": "المدى الزمني",
+        "Published": "المنشورة",
+        "Rejected": " المحذوفات",
+        "Image": "الصورة",
+        "Title": "العنوان",
+        "By": "بواسطة",
+
+        "PublishModification": "النشر والتعديل",
+        "Views": "القراءات",
+        "Action": "الإجراءات",
+        "Status": "الحالة",
+
+
+        "CreatedBy": "أنشي بواسطة",
+        "publishOn": "نشر في",
+        "LastupdatedBy": "آخر تعديل بواسطة",
+        "LastUpdatedOn": "آخر تعديل تم في",
+
+        "AreYouSureDelete": "هل تؤكد نقل المقال إلى سلة المهملات ؟",
+        "DeleteArticle": "نقل المقال إلى سلة المهملات",
+
+
+        "EditArticle": "تعديل المقال",
+        "DisplayArticleOnWebsite": "عرض المقالة ",
+
+        "AreYouSureRestore": "هل أنت متأكد من استعادة هذه المقال للنشر",
+        "RestoreArticle": "أستعيد نشر المقال",
+        "RejectedSuccess": "تم نقل المقالة إلى سلة المحذوفات بنجاح",
+        "RestoreSuccess": "تم استعادة نشر المقالة بنجاح"
+    },
+    "ARTICLEForm": {
+        "CreateNewArticle": "إنشاء مقال جديد",
+        "EditArticle": "تعديل المقال",
+        "Title": "العنوان",
+        "EnterTitle": "إدخل العنوان",
+        "PleaseInputTitle": "من فضلك أدخل العنوان",
+        "Summary": "الملخص",
+        "EnterSummary": "إدخل الملخص",
+        "SummaryErrorTpl": "من افضل أختصر الملخص إلى 200 حرف أو أقل ",
+        "Writer": "الكاتب",
+        "SelectWriter": "  اختر الكاتب",
+        "PleaseSelectCategory": "من فضلك اختار الكاتب",
+
+        "Content": "المحتوى",
+        "EnterContent": "أدخل المحتوى",
+        "PleaseInputContent": "من فضلك أدخل محتوى المقالة",
+
+
+        "PublishingOptions": "خيارات النشر",
+
+        "Published": "النشر الان",
+        "Rejected": "منع من العرض",
+
+        "Submit": "حفظ",
+        "Reset": "تهيئة",
+        "Cancel": "خروج",
+        "AddedSuccessfully": "تم إضافة المقالة بنجاح",
+        "UpdatedSuccessfully": "تم حفظ التعديلات على المقالة بنجاح"
+    },
+    "dropdownAddWriter": {
+        "AddNewWriter": "إضافة كاتب جديد",
+        "Validating": "جاري التحقق من عدم وجود أسم الكاتب مسبقا ..",
+        "EnterWriterName": "قم بإدخال إسم الكاتب هنا",
+        "PleaseEnterWriterName": "من فضلك قم بإدخال إسم الكاتب ",
+        "WriterAlreadyAdded": "إسم الكاتب تم إضافته سابقا",
+        "maxlengthValidating": "إسم الكاتب يجب أن لا يزيد عن 15 حرفا",
+        "UploadImage": "تحميل صورة الكاتب",
+        "SaveWriter": " حفظ البيانات"
+    },
+    "WRITERSLIST": {
+        "WriterManagement": "إدارة الكتّاب",
+        "CreateNewWriter": "إضافة كاتب جديد",
+        "Search": "بحث",
+        "inputSearch": "أبحث هنا",
+        "Reset": "Reset",
+
+
+        "Sort": "فرز",
+        "selectSortWay": "أختر طريقة الفرز",
+
+        "Active": "مفعل",
+        "Inactive": "موقوف",
+
+
+        "Image": "الصورة",
+        "Name": "أسم الكاتب",
+        "PublishModification": "الإضافة والتعديل",
+        "Status": "الحالة",
+        "Action": "الإجراءات",
+
+
+        "CreatedBy": "أنشيء بواسطة",
+        "createdAt": "أنشئ في",
+        "LastUpdatedBy": "آخر تعديل بواسطة",
+        "LastUpdatedOn": "آخر تعديل في",
+
+
+        "AreYouSureDelete": "هل تريد إلغاء تفعيل الكاتب?",
+        "DeleteWriter": "إرسال  الكاتب إلى سلة المهملات",
+
+        "EditWriter": "تعديل بيانات الكاتب",
+
+        "AreYouSureRestore": "هل تريد إعادة تفعيل نشاط الكاتب",
+        "RestoreWriter": "إعادة تفعيل نشاط الكاتب",
+        "RejectedSuccess": "تم إلغاء تفعيل نشاط الكاتب ونقله إلى سلة المحذوفات",
+        "RestoreSuccess": "تم إعادة تفعيل نشاط الكاتب بنجاح"
+
+    },
+    "WriterForm": {
+
+        "AddNewWriter": "إضافة كاتب جديد",
+        "EditWriter": "تعديل بيانات الكاتب ",
+        "Name": "إسم الكاتب",
+
+        "Validating": "جاري التحقق من عدم وجود أسم الكاتب مسبقا ..",
+        "EnterWriterName": "قم بإدخال إسم الكاتب هنا",
+        "PleaseEnterWriterName": "من فضلك قم بإدخال إسم الكاتب ",
+        "WriterAlreadyAdded": "إسم الكاتب تم إضافته سابقا",
+        "maxlengthValidating": "إسم الكاتب يجب أن لا يزيد عن 15 حرفا",
+
+
+
+        "Status": "الحالة",
+        "Active": "مفعل",
+        "Inactive": "غير مفعل",
+
+        "Submit": "حفظ",
+        "Cancel": "خروج",
+        "AddedSuccessfully": "تم إضافة الكاتب بنجاح",
+        "UpdatedSuccessfully": "تم حفظ التعديلات على ملف الكاتب بنجاح"
+    },
+    "guards": {
+
+        "titleAddMode": "هل تريد مغادرة الصفحة؟",
+        "titleEditMode": "تعديلات غير محفوظة",
+        "contentAddMode": "لم تكمل خبرك بعد. هل تريد المغادرة قبل الانتهاء؟",
+        "contentEditMode": "هل تريد حفظ التغييرات أم تجاهلها",
+        "OkTextAddMode": "البقاء في الصفحة",
+        "OkTextEditMode": "حفظ كمسودة",
+        "Discard": "مغادرة الصفحة ",
+        "successDraft": "تم اضافة المسودة بنجاح",
+        "successNewsUpdated": "تم تعديل الخبر بنجاح",
+        "updateFailures": "عملية التعديل فشلت "
+
+    },
+    "VIDEOandGALLERYLIST": {
+        "VideoList": "قائمة الفيديو ",
+        "GalleryList": "قائمة البومات الصور ",
+        "CreateNewVideo": "إنشاء فيديو جديد",
+        "CreateNewGallery": "إنشاء صورة او البوم جديد",
+        "Search": "بحث",
+        "inputSearch": "أبحث هنا",
+        "Reset": "Reset",
+        "VideoCategoriesManage": "إدارة أقسام الفيديو",
+        "GalleryCategoriesManage": "إدارة أقسام الصور",
+
+        "Sort": "فرز",
+        "selectSortWay": "أختر طريقة الفرز",
+        "selectCategory": "أختر التصنيف",
+        "SelectCreatedBy": "اختيار بواسطة المنشئ",
+        "Published": "منشور",
+        "Rejected": "موقوف",
+        "Date": "المدى الزمني",
+        "Image": "الصورة",
+        "Title": "العنوان",
+        "Video": "الفيديو",
+        "Gallery": "الصورة أو الألبوم",
+        "PublishModification": "الأضافة / التعديل",
+        "Category": "التصنيف",
+        "VideoUrl": "مسار الفيديو",
+        "Status": "الحالة",
+        "Action": "الإجراءات",
+
+        "CreatedBy": "أنشي بواسطة",
+        "CreatedOn": "أنشى في",
+
+        "LastUpdatedOn": "آخر تعديل تم في",
+        "LastUpdatedBy": "آخر تعديل تم بواسطة",
+
+        "AreYouSureDelete": "هل تؤكد نقل العنصر إلى سلة المهملات ؟",
+        "Delete": "نقل العنصر إلى سلة المهملات",
+        "Edit": "تعديل بيانات المادة",
+        "DisplayOnWebsite": "عرض المادة",
+        "AreYouSureRestore": "هل تريد إعادة نشر المادة ",
+        "Restore": "إعادة نشر المادة",
+        "VideoRejectedSuccess": "تم نقل الفيديو إلى سلة المهملات بنجاح",
+        "VideoRestoreSuccess": "تم إستعادة نشر الفيديو بنجاح",
+        "GalleryRejectedSuccess": "تم نقل الصورة/الألبوم إلى سلة المهملات بنجاح",
+        "GalleryRestoreSuccess": "تم استعادة نشر الصورة/الألبوم بنجاح"
+
+    },
+    "VEDIOandGALLERYForm": {
+        "CreateNewVideo": "إنشاء فيديو جديد",
+        "EditVideo": "تعديل بيانات الفيديو",
+        "CreateNewGallery": "إنشاء صورة أو ألبوم جديد",
+        "EditGallery": "تعديل بيانات الصورة أو الألبوم",
+        "Title": "العنوان",
+        "EnterTitle": "إدخل العنوان",
+        "PleaseInputTitle": "من فضلك أدخل العنوان",
+        "VideoUrl": "المسار",
+        "EnterUrl": "إدخل مسار فيديو اليوتيوب",
+        "PleaseInputUrl": "من فضلك أدخل مسار الفيديو ( اليويتوب )",
+        "patternUrl": "الرجاء إدخال عنوان URL بالتنسيق الصحيح",
+        "Category": "التصنيف",
+        "SelectCategory": "  اختر التصنيف",
+        "PleaseSelectCategory": "من فضلك اختار التصنيف",
+
+        "Description": "الوصف",
+        "EnterDescription": "أدخل الوصف",
+        "PleaseInputDescription": "من فضلك أدخل الوصف ",
+
+        "VideoCover": " غلاف الفيديو ومعاينته",
+
+
+
+        "PublishingOptions": "خيارات النشر",
+
+        "Published": "النشر الان",
+        "Rejected": "منع من العرض",
+
+        "Submit": "حفظ",
+        "Reset": "تهيئة",
+        "Cancel": "خروج",
+        "VideoAddedSuccessfully": "تم إضافة الفيديو بنجاح",
+        "VideoUpdatedSuccessfully": "تم تعديل بيانات الفيديو بنجاح",
+        "GalleryAddedSuccessfully": "تم إضافة الصورة/الألبوم بنجاح",
+        "GalleryUpdatedSuccessfully": "تم تعديل بيانت الصورة/الألبوم بنجاح"
+
+    }
+}

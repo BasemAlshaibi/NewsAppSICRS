@@ -1,0 +1,133 @@
+/* You can add global styles to this file, and also import other style files */
+
+//swiper
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+// quill Editor
+//@import '~quill/dist/quill.bubble.css';
+// or
+//@import '~quill/dist/quill.snow.css';
+//sharebuttons
+//@import '~ngx-sharebuttons/themes/default'; // لم يعمل
+@import "../node_modules/ngx-sharebuttons/themes/default.scss";
+
+/* Importing Bootstrap SCSS file. */
+
+//@import "~bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap";
+a {
+    text-decoration: none;
+}
+
+
+/*
+ * QUILL - SAMPLE OVERRIDES
+ */
+
+
+/*
+quill-editor {
+    display: block;
+    //  direction: rtl;
+}
+
+.ql-editor:focus {
+    border: 1px solid #80bdff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+*/
+
+
+/*
+.ng-invalid {
+    border: 1px dashed red;
+}
+*/
+
+
+/* Set dropdown font-families */ // محتاج تضبيط
+
+/*[quill-editor-toolbar] .ql-font span[data-label="Aref Ruqaa"]::before {
+    font-family: "Aref Ruqaa";
+}
+
+[quill-editor-toolbar] .ql-font span[data-label="Mirza"]::before {
+    font-family: "Mirza";
+}
+
+[quill-editor-toolbar] .ql-font span[data-label="Roboto"]::before {
+    font-family: "Roboto";
+}
+
+*/
+
+
+/* Set content font-families */
+
+
+/*
+.ql-font-mirza {
+    font-family: "Mirza";
+}
+
+.ql-font-aref {
+    font-family: "Aref Ruqaa";
+}
+
+.ql-font-roboto {
+    font-family: "Roboto";
+}
+*/
+
+//  مؤقت تخص التنسيقات العامةة 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    direction: ltr;
+}
+
+
+/** swiper pagination in vistor page **/
+
+.swiper-pagination {
+    position: absolute;
+    left: 50%;
+    bottom: -27px;
+    transform: translatex(-50%);
+    z-index: 1;
+    width: auto !important;
+}
+
+.swiper-pagination-bullet {
+    border-radius: 0;
+    width: 9px!important;
+    height: 9px!important;
+    border-radius: 50%;
+    line-height: 30px;
+    font-size: 12px!important;
+    opacity: 1;
+    background: #D4112F;
+    display: inline-block;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.swiper-pagination-bullet-active {
+    background: #FDCD01;
+    width: 20px !important;
+    border-radius: 10px !important;
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: -30px;
+    left: 50%;
+}
+
+@media screen and (max-width: 700px) {
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: -20px;
+    }
+}

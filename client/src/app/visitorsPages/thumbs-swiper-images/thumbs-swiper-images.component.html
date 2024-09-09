@@ -1,0 +1,12 @@
+<div class="swap-wrap">
+    <swiper style="--swiper-navigation-color: #fff;--swiper-pagination-color: #fff" [thumbs]="{ swiper: thumbsSwiper }" class="mySwiper2" dir="rtl" [config]="swiperconfig">
+        <ng-template swiperSlide *ngFor="let img of images"><img nz-image nzSrc="{{img.fullscreenUrl}}" /></ng-template>
+
+    </swiper>
+    <swiper (swiper)="thumbsSwiper = $event" [spaceBetween]="10" [slidesPerView]="4" [freeMode]="true" [watchSlidesProgress]="true" class="mySwiper" dir="rtl">
+        <ng-template swiperSlide *ngFor="let img of images"><img src="{{img.thumbnailUrl}}" /></ng-template>
+
+    </swiper>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>

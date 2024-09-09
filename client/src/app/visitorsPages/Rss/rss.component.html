@@ -1,0 +1,96 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="rss col-12 col-lg-8">
+
+
+            <div class="breadcrumbs">
+                <a> <span [routerLink]="['../../']" class="bhome"> Home </span>
+                </a>
+                <span nz-icon nzType="left" nzTheme="outline" class="arrow"></span>
+                <span [routerLink]="['../../category/']"><a> RSS </a></span>
+
+            </div>
+
+            <div class="RssTitle">
+                <span>   RSS </span>
+
+
+            </div>
+
+
+
+            <nz-table #newsTable class="mt-4 mb-1" nzBordered>
+                <thead>
+                    <tr>
+                        <th> News </th>
+                        <th>
+                            <fa-icon [icon]="faRss" (click)="openNewTab('/rss/news')"></fa-icon>
+
+
+                        </th>
+
+                    </tr>
+                </thead>
+
+
+
+            </nz-table>
+
+            <nz-table #CategoriesTable [nzData]="CategoriesList" nzShowPagination="false">
+                <thead>
+                    <tr>
+                        <th colspan="2"> News By Categories </th>
+
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    <tr *ngFor="let data of CategoriesTable.data">
+                        <td>{{data.name}}</td>
+                        <td>
+                            <nz-divider nzType="vertical"></nz-divider>
+
+                            <fa-icon [icon]="faRss" (click)="openNewTabWithId('/rss/news/Category/',data.id)"></fa-icon>
+
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </nz-table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--  -->
+
+
+
+
+
+
+        </div>
+        <div class="side col-12 col-lg-4 ">
+
+            <app-editor-choice-inside></app-editor-choice-inside>
+            <app-our-services></app-our-services>
+        </div>
+
+
+    </div>
+
+</div>

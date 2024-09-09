@@ -42,7 +42,7 @@ namespace API.Controllers
  
         }
 
-        [HttpPost("login")]  
+        [HttpPost("login1")]  
         public async Task<ActionResult<AuthResponseDto>> Login(LoginDto loginDto)
         {
             var result = await _accountRepository.LoginAsync(loginDto); 

@@ -1,0 +1,167 @@
+<app-divider text="{{ 'AdminController.CreateNewUser' | translate }}" [icon]="'user-add'">
+</app-divider>
+
+<nz-card>
+
+
+    <div nz-row class="mt-5">
+        <div nz-col [nzXs]="{ span: 24 }" [nzXl]="{ span: 16 }">
+            <form nz-form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+                <nz-form-item>
+
+                    <nz-form-label class="text-end" nzFor="email" [nzXs]="{ span: 24 }" [nzMd]="{ span: 4 }" [nzLg]="{ span: 6 }" nzRequired>{{ 'AdminController.Email' | translate }}</nz-form-label>
+
+
+                    <nz-form-control [nzXs]="{ span: 24 }" [nzMd]="{ span: 18 }" [nzLg]="{ span: 14 }" nzHasFeedback nzValidatingTip="{{ 'AdminController.Validating' | translate }}" [nzErrorTip]="emailErrorTpl">
+                        <input nzSize="large" nz-input formControlName="email" id="email" placeholder="{{ 'AdminController.PleaseInputEmail' | translate }}" />
+                        <ng-template #emailErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">{{ 'AdminController.PleaseInputEmail' | translate }}</ng-container>
+                            <ng-container *ngIf="control.hasError('duplicated')">{{ 'AdminController.EmailAlreadyAddedRegistered' | translate }}</ng-container>
+                            <ng-container *ngIf="control.hasError('pattern')">{{ 'AdminController.InvalidEmailFormat' | translate }}</ng-container>
+
+                        </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label class="text-end" nzFor="knownAs" [nzXs]="{ span: 24 }" [nzMd]="{ span: 4 }" [nzLg]="{ span: 6 }" nzTooltipTitle="{{ 'AdminController.NickNameTip' | translate }}">{{ 'AdminController.knownAs' | translate }}</nz-form-label>
+
+                    <nz-form-control [nzXs]="{ span: 24 }" [nzMd]="{ span: 18 }" [nzLg]="{ span: 14 }" nzHasFeedback [nzErrorTip]="knownAsErrorTpl">
+                        <input nzSize="large" formControlName="knownAs" id="knownAs" nz-input placeholder="{{ 'AdminController.EnterNickName' | translate }}" />
+                        <ng-template #knownAsErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')">{{ 'AdminController.PleaseInputNickName' | translate }}</ng-container>
+
+
+                        </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label class="text-end" [nzXs]="{ span: 24 }" [nzMd]="{ span: 4 }" [nzLg]="{ span: 6 }">{{ 'AdminController.Role' | translate }}</nz-form-label>
+                    <nz-form-control [nzXs]="{ span: 24 }" [nzLg]="{ span: 18 }">
+                        <nz-radio-group nzButtonStyle="solid" formControlName="role" nzSize="large">
+
+                            <label nz-radio-button nzValue="Admin" nz-tooltip nzTooltipColor="red" nzTooltipTitle="{{ 'AdminController.AdminDescr' | translate }}">{{ 'AdminController.Admin' | translate }}</label>
+
+
+                            <label nz-radio-button nzValue="Editor" nz-tooltip nzTooltipColor="#2db7f5" nzTooltipTitle="{{ 'AdminController.EditorDescr' | translate }}">{{ 'AdminController.Editor' | translate }}</label>
+
+
+                            <label nz-radio-button nzValue="Author" nz-tooltip nzTooltipColor="gold" nzTooltipTitle="{{ 'AdminController.AuthorDescr' | translate }}">{{ 'AdminController.Author' | translate }}</label>
+
+
+                            <label nz-radio-button nzValue="Contributor" nz-tooltip nzTooltipColor="green" nzTooltipTitle="{{ 'AdminController.ContributorDescr' | translate }}">{{ 'AdminController.Contributor' | translate }}</label>
+
+
+                        </nz-radio-group>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label class="text-end" nzFor="password" [nzXs]="{ span: 24 }" [nzMd]="{ span: 4 }" [nzLg]="{ span: 6 }" nzRequired>
+                        {{ 'AdminController.Password' | translate }}
+                    </nz-form-label>
+
+                    <nz-form-control [nzXs]="{ span: 24 }" [nzMd]="{ span: 18 }" [nzLg]="{ span: 14 }" nzHasFeedback [nzErrorTip]="passwordErrorTpl">
+
+                        <nz-input-group [nzSuffix]="suffixTemplate">
+                            <input nzSize="large" id="password" [type]="passwordVisible ? 'text' : 'password'" nz-input [(ngModel)]="password" placeholder="{{ 'AdminController.PasswordEnter' | translate }}" formControlName="password" (ngModelChange)="validateConfirmPassword()" />
+                        </nz-input-group>
+                        <ng-template #suffixTemplate>
+                            <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></i>
+                        </ng-template>
+
+
+
+                        <ng-template #passwordErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')"> {{ 'AdminController.PasswordRequired' | translate }} </ng-container>
+
+                            <ng-container *ngIf="control.hasError('minlength')">{{ 'AdminController.PasswordMinlength' | translate }} </ng-container>
+                            <br>
+                            <ng-container *ngIf="control.hasError('pattern')"> {{ 'AdminController.PasswordPattern' | translate }}
+                            </ng-container>
+
+                        </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-label class="text-end" [nzXs]="{ span: 24 }" [nzMd]="{ span: 4 }" [nzLg]="{ span: 6 }" nzRequired>
+                        {{ 'AdminController.ConfirmPassword' | translate }}
+                    </nz-form-label>
+
+                    <nz-form-control nzFor="confirm" [nzXs]="{ span: 24 }" [nzMd]="{ span: 18 }" [nzLg]="{ span: 14 }" nzHasFeedback [nzErrorTip]="confirmErrorTpl">
+
+
+                        <nz-input-group [nzSuffix]="suffixTemplateconfirm">
+                            <input nzSize="large" id="confirm" [type]="confirmVisible ? 'text' : 'password'" nz-input [(ngModel)]="confirm" placeholder="{{ 'AdminController.ConfirmPasswordEnter' | translate }}" formControlName="confirm" />
+                        </nz-input-group>
+                        <ng-template #suffixTemplateconfirm>
+                            <i nz-icon [nzType]="confirmVisible ? 'eye-invisible' : 'eye'" (click)="confirmVisible = !confirmVisible"></i>
+                        </ng-template>
+
+
+                        <ng-template #confirmErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('required')"> {{ 'AdminController.ConfirmPasswordRequired' | translate }} </ng-container>
+                            <ng-container *ngIf="control.hasError('confirm')"> {{ 'AdminController.PasswordInconsistent' | translate }}</ng-container>
+                        </ng-template>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label class="text-end" [nzXs]="{ span: 4 }" [nzLg]="{ span: 6 }">
+
+                        {{ 'AdminController.Gender' | translate }}
+
+                    </nz-form-label>
+                    <nz-form-control [nzXs]="{ span: 16 }" [nzLg]="{ span: 14 }">
+                        <nz-radio-group nzButtonStyle="solid" formControlName="gender" nzSize="large">
+                            <label nz-radio-button nzValue="male">{{ 'AdminController.Male' | translate }}</label>
+                            <label nz-radio-button nzValue="female">{{ 'AdminController.Female' | translate }}</label>
+                        </nz-radio-group>
+                    </nz-form-control>
+                </nz-form-item>
+
+
+
+
+
+                <nz-form-item>
+                    <nz-form-control>
+
+                        <button nz-button type="submit" nzType="primary" [disabled]="!registerForm.valid" nzSize="large">{{ 'AdminController.Save' | translate }}</button>
+
+                        <nz-divider nzType="vertical"></nz-divider>
+
+
+                        <button nz-button type="button" (click)="resetForm($event)" nzSize="large">{{ 'AdminController.Rest' | translate }}</button>
+
+                        <nz-divider nzType="vertical"></nz-divider>
+
+                        <button nz-button type="button" nzSize="large" (click)="cancel()"> {{ 'AdminController.Cancel' | translate }}</button>
+
+
+
+
+
+                    </nz-form-control>
+                </nz-form-item>
+            </form>
+
+        </div>
+        <div nz-col [nzXs]="{ span: 24 }" [nzXl]="{ span: 8 }">
+            <nz-list nzBordered nzSize="large" *ngIf="errors">
+                <nz-list-header>Validation Errors </nz-list-header>
+                <nz-list-item *ngFor="let error of errors"> {{error}}</nz-list-item>
+
+            </nz-list>
+        </div>
+    </div>
+
+
+</nz-card>
+
+
+
+
+<!-- <app-reusable-text-input [label]=" 'First name'" formControlName="username">
+</app-reusable-text-input> -->

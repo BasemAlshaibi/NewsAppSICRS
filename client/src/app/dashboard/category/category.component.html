@@ -1,0 +1,90 @@
+<app-divider text="{{ 'Categories.CategoriesManagement' | translate }}" [icon]="'unordered-list'">
+</app-divider>
+
+<nz-card>
+    <div class="row justify-content-md-center">
+
+        <div class="col-6  col-md-4 col-lg-auto mb-2">
+            <button class="me-1 w-100" nz-button nzType="primary" [disabled]="isEditing$ | async" (click)="saveAllChanges()"> {{ 'Categories.SaveYourChanges' | translate }} </button>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-auto order-md-last mb-2">
+
+
+            <button class="me-1 w-100" nz-button nzType="primary" (click)="onReset()">
+                <i nz-icon nzType="reload"></i>
+                {{ 'Categories.Rest' | translate }}
+              </button>
+
+        </div>
+
+        <div class="col-12 col-md-5  col-lg-auto">
+
+
+            <button class="me-1 w-100" nz-button (click)="addRow()" nzType="primary" *ngIf="isAddMode">
+                <i nz-icon nzType="folder-add" nzTheme="outline"></i> {{ 'Categories.Add' | translate }}</button>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+</nz-card>
+<nz-table [nzData]="categories" [nzFrontPagination]="false" [nzShowPagination]="false" [nzScroll]="{ x: '900px' }">
+    <thead>
+        <tr>
+            <th nzWidth="600px">{{ 'Categories.Name' | translate }}</th>
+            <th nzWidth="150px">{{ 'Categories.Status' | translate }}</th>
+
+            <th nzWidth="150px">{{ 'Categories.Order' | translate }}</th>
+        </tr>
+    </thead>
+    <tbody cdkDropList (cdkDropListDropped)="drop($event)">
+        <tr *ngFor="let data of categories" cdkDrag [cdkDragData]="categories" class="editable-row">
+            <td nzWidth="600px">
+                <!-- <div class="editable-cell" [hidden]="editId === data.id" (click)="startEdit(data.id)">
+                    {{ data.name }}
+                </div>
+                <input [hidden]="editId !== data.id" type="text" nz-input [(ngModel)]="data.name" (blur)="stopEdit()" placeholder="Enter Category Name" /> -->
+
+                <p nz-typography nzEditable nzEditTooltip="{{ 'Categories.clickToEdit' | translate }}" [(nzContent)]="data.name" (nzContentChange)="isEditingCheck()" [hidden]="recordId === data.id"></p>
+
+                <nz-input-group [nzSuffix]="suffixEnter" [hidden]="recordId !== data.id">
+                    <input type="text" nz-input [(ngModel)]="data.name" #addCategory (blur)="stopAdd(addCategory.value)" placeholder="{{ 'Categories.EnterCategoryName' | translate }}" (keyup.enter)="stopAdd(addCategory.value)" />
+                </nz-input-group>
+
+                <ng-template #suffixEnter>
+                    <i nz-icon nz-tooltip nzTooltipTitle="{{ 'Categories.EnterCategoryNametipTitle' | translate }}" nzType="enter"></i>
+                </ng-template>
+
+
+
+            </td>
+            <td>
+
+                <div nzWidth="150px" nzAlign="center">
+
+                    <nz-switch [(ngModel)]="data.status" [nzCheckedChildren]="checkedTemplate" [nzUnCheckedChildren]="unCheckedTemplate" (ngModelChange)="isEditingCheck()"></nz-switch>
+                    <ng-template #checkedTemplate><i nz-icon nzType="check"></i></ng-template>
+                    <ng-template #unCheckedTemplate><i nz-icon nzType="close"></i></ng-template>
+
+
+
+
+                </div>
+
+
+
+
+
+            </td>
+            <td class="dragOder" nzWidth="150px" nzAlign="center">{{ data.order }}
+                <nz-divider nzType="vertical"></nz-divider>
+                <i nz-icon nzType="drag" nzTheme="outline"></i></td>
+        </tr>
+    </tbody>
+</nz-table>

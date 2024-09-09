@@ -1,0 +1,28 @@
+ .news {
+     display: flex;
+     // justify-content: center;
+     // align-items: center;
+     height: 90px;
+     margin-bottom: 15px;
+ }
+ 
+ .news img {
+     display: block;
+     width: 90px;
+     height: 90px;
+     border-radius: 8px;
+     object-fit: cover;
+     margin-right: 15px;
+ }
+ 
+ .news .time {
+     font-size: 0.8rem;
+     color: #999;
+     margin-top: 5px;
+ }
+ 
+ @media screen and (max-width: 750px) {
+     .title {
+         font-size: 1rem;
+     }
+ }

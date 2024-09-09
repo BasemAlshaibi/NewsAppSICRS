@@ -1,0 +1,59 @@
+ nz-select {
+     width: 200px;
+ }
+ 
+ .Searchform {
+     display: flex;
+     justify-content: flex-end;
+ }
+ 
+ //nz-typography
+ span[nz-typography] {
+     display: block;
+ }
+ 
+ span[nz-typography]+span[nz-typography] {
+     margin-top: 8px;
+ }
+ 
+ //image
+ img {
+     max-height: 50px;
+     border: 2px solid rgb(255, 255, 255);
+     display: inline;
+     border-radius: 50%;
+     cursor: pointer;
+ }
+ 
+ img:hover {
+     border: 1px solid #1890ff;
+ }
+ 
+ nz-avatar,
+ nz-badge {
+     cursor: pointer;
+ }
+ 
+ /// inner search-box
+ .search-box {
+     padding: 8px;
+ }
+ 
+ .search-box input {
+     width: 188px;
+     margin-bottom: 8px;
+     display: block;
+ }
+ 
+ .search-box button {
+     width: 90px;
+ }
+ 
+ .search-button {
+     margin-right: 8px;
+ }
+ 
+ [nz-icon] {
+     font-size: 20px;
+     cursor: pointer;
+ }

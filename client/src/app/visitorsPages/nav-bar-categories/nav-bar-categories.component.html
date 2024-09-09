@@ -1,0 +1,43 @@
+<nav class="menuNavbar" *ngIf="CategoriesList">
+    <div class="nav-container container">
+
+        <div class="media_button" (click)="mediaBtn()">
+            <button class="main_media_button" id="mediaButton">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div>
+            <ul id="mainList">
+                <li>
+                    <a (click)="goToHome()"> <i style="font-size: 24px; color: #d4112f;" class="ms-2" nz-icon nzType="home" nzTheme="outline"></i></a>
+
+                </li>
+                <li *ngFor="let Category of CategoriesList">
+                    <a (click)="goToCategory(Category.id)">{{Category.name}}</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="search-icon" (click)="searchBtn()">
+            <i nz-icon nzType="search"></i>
+        </div>
+
+        <div class="cancel-icon" (click)="cancelBtn()">
+            <i nz-icon nzType="close" nzTheme="outline"></i>
+        </div>
+
+
+        <form id="searchForm" onsubmit="return false">
+
+            <input type="search" class="input-search" #searchTerm placeholder="Search here">
+            <button (click)=" searchFun(searchTerm.value) "><i nz-icon nzType="search"></i></button>
+
+
+        </form>
+
+    </div>
+
+</nav>

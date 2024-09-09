@@ -1,0 +1,346 @@
+<!-- Header -->
+<app-divider text="{{ 'NEWSLIST.NewsList' | translate }}" [icon]="'global'">
+</app-divider>
+<!-- Add New News and Search / Rest Controls -->
+<nz-card>
+
+    <div class="row">
+
+        <div class="col-8 col-md-6 col-lg-4 col-xl-3 mb-1 offset-xl-3">
+
+            <button nz-button nzType="primary" nzSize="large" class="w-100" nzShape="round" [routerLink]="['../addOrEdit']">
+            <i nz-icon nzType="plus-circle"></i>
+            {{ 'NEWSLIST.CreateNewNews' | translate }}
+          </button>
+
+        </div>
+
+        <div class="col-4 col-md-6 col-lg-2 order-lg-2 col-xl-2 mb-1">
+
+            <button class="float-start" nz-button (click)="onReset()" nzSize="large" nzShape="round"> 
+                <i nz-icon nzType="redo" nzTheme="outline" class="d-none d-md-inline-block"></i>
+                
+                 <span >  {{ 'NEWSLIST.Reset' | translate }}</span>
+
+            </button>
+        </div>
+
+        <div class="col-12 col-md-12 col-lg-6 col-xl-4 mb-1">
+
+
+            <nz-input-group nzSearch [nzAddOnAfter]="suffixButton" nzSize="large" class="w-100">
+                <input #search (keyup.enter)="onSearch()" type="text" nz-input placeholder=" {{ 'NEWSLIST.inputSearch' | translate }}" />
+            </nz-input-group>
+
+            <ng-template #suffixButton>
+                <button nz-button nzType="primary" nzSearch (click)="onSearch()"> {{ 'NEWSLIST.Search' | translate }}</button>
+            </ng-template>
+
+
+        </div>
+    </div>
+
+
+
+</nz-card>
+<!-- Filter ,Sort and status Controls -->
+
+<nz-card>
+    <div class="row">
+
+        <!--Sort -->
+
+        <div class="col-12 col-md-6 col-xl-3">
+            <nz-form-item>
+                <!-- <nz-form-label nzFor="Sort"> {{ 'NEWSLIST.Sort' | translate }}</nz-form-label> -->
+                <nz-form-control>
+
+                    <nz-select name="Sort" id="Sort" [(ngModel)]="SortSelectedValue" (ngModelChange)="onSortSelected($event)" nzAllowClear nzPlaceHolder="{{ 'NEWSLIST.selectSortWay' | translate }}">
+                        <nz-option *ngFor="let option of sortOptions" [nzValue]="option" [nzLabel]="option.label"></nz-option>
+                    </nz-select>
+
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+
+
+        <!-- Fliters  Category -->
+        <div class="col-12  col-md-6 col-xl-3">
+
+            <nz-form-item>
+                <!-- <nz-form-label nzFor="Fliters"> {{ 'NEWSLIST.Fliters' | translate }}</nz-form-label> -->
+                <nz-form-control>
+
+                    <!-- <nz-select name="Fliters" id="Fliters" nzShowSearch nzPlaceHolder="{{ 'NEWSLIST.selectCategory' | translate }}" nzAllowClear [nzOptions]="listOfcategories" [(ngModel)]="SelectedCategory" (ngModelChange)="onCategorySelected()"></nz-select> -->
+
+                    <nz-select name="Fliters" id="Fliters" nzShowSearch [(ngModel)]="SelectedCategory" (ngModelChange)="onCategorySelected()" nzAllowClear nzPlaceHolder="{{ 'NEWSLIST.selectCategory' | translate }}">
+                        <nz-option *ngFor="let option of listOfcategories" [nzValue]="option" [nzLabel]="option.label" [nzDisabled]="option.isActive==false"></nz-option>
+                    </nz-select>
+
+
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+
+        <!-- Fliters  CreatedBy -->
+
+
+        <div class="col-12  col-md-6 col-xl-3">
+
+            <nz-form-item>
+                <!-- <nz-form-label nzFor="Fliters"> {{ 'NEWSLIST.Fliters' | translate }}</nz-form-label> -->
+                <nz-form-control>
+
+
+                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="{{ 'NEWSLIST.SelectCreatedBy' | translate }}" [nzCustomTemplate]="selectedUserTemplate" [(ngModel)]="SelectedCreatedUser" (ngModelChange)="onCreatedUserSelected()">
+                        <nz-option *ngFor="let option of listOfCreatedUser" [nzValue]="option.value" [nzLabel]="option.label" nzCustomContent>
+                            <nz-avatar nzIcon="user" [nzSrc]="option.photoUrl" class="me-2"></nz-avatar>
+                            {{option.label}}
+                        </nz-option>
+
+                    </nz-select>
+                    <ng-template #selectedUserTemplate let-selected> {{ selected.nzLabel}} </ng-template>
+
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+
+
+
+
+        <!--range-picker -->
+
+        <div class="col-12  col-md-6 col-xl-3">
+
+
+            <nz-form-item>
+                <!-- <nz-form-label nzFor="rangeDate"> {{ 'NEWSLIST.Date' | translate }}
+                </nz-form-label> -->
+                <nz-form-control>
+
+                    <nz-range-picker name="rangeDate" id="rangeDate" [nzShowTime]="{ nzFormat: 'HH:mm' }" [(ngModel)]="date" (ngModelChange)="onDateRangeChange($event)" [nzFormat]="dateFormat" [nzRanges]="ranges" class="w-100"></nz-range-picker>
+
+
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!--news Status -->
+
+
+    <div class="text-center">
+        <nz-radio-group [(ngModel)]="statusValue" nzButtonStyle="solid" (ngModelChange)="onStatusChange($event)">
+            <!-- <label nz-radio-button nzValue=null>All</label> -->
+
+            <label nz-radio-button nzValue="Published"> <i nz-icon nzType="check" nzTheme="outline" class="ms-1" nz-tooltip nzTooltipColor="green" nzTooltipTitle="{{ 'NEWSLIST.Published' | translate }}"></i> 
+                    
+                   
+
+                    <span class="d-none d-lg-inline-block"> {{ 'NEWSLIST.Published' | translate }}</span>
+
+                
+                </label>
+            <label nz-radio-button nzValue="Draft"> <i nz-icon nzType="edit" nzTheme="outline" class="ms-1" nz-tooltip nzTooltipColor="gold" nzTooltipTitle="{{ 'NEWSLIST.Draft' | translate }}">
+
+                </i>
+                    
+                    <span class="d-none d-lg-inline-block">{{ 'NEWSLIST.Draft' | translate }}</span>
+
+                </label>
+            <label nz-radio-button nzValue="Scheduled"> <i nz-icon nzType="field-time" nzTheme="outline" class="ms-1" nz-tooltip nzTooltipColor="blue" nzTooltipTitle="{{ 'NEWSLIST.Scheduled' | translate }}"></i>
+                    
+                    
+                    <span class="d-none d-lg-inline-block">{{ 'NEWSLIST.Scheduled' | translate }}</span>
+                
+                </label>
+            <label nz-radio-button nzValue="Pending"> <i nz-icon nzType="pushpin" nzTheme="outline" class="ms-1"  nz-tooltip nzTooltipColor="orange" nzTooltipTitle="{{ 'NEWSLIST.PendingReview' | translate }}"></i>
+                    
+                 
+                    <span class="d-none d-lg-inline-block">   {{ 'NEWSLIST.PendingReview' | translate }}</span>
+
+                </label>
+            <label nz-radio-button nzValue="Rejected"> <i nz-icon nzType="delete" nzTheme="outline" class="ms-1" nz-tooltip nzTooltipColor="red" nzTooltipTitle="{{ 'NEWSLIST.Rejected' | translate }}"></i>  
+                    
+                   
+                    <span class="d-none d-lg-inline-block"> {{ 'NEWSLIST.Rejected' | translate }}</span>
+
+                </label>
+        </nz-radio-group>
+    </div>
+
+
+
+
+
+
+</nz-card>
+
+<!--  Data Table -->
+
+<nz-table nzBordered #newsTable [nzData]="newsList" [nzFrontPagination]="false" [nzShowPagination]="false" [nzScroll]="{ x: '1100px' }">
+    <thead>
+        <tr>
+            <th nzRight nzWidth="100px" nzAlign="center">
+                {{ 'NEWSLIST.Image' | translate }}
+            </th>
+
+            <th>{{ 'NEWSLIST.Title' | translate }}</th>
+            <th nzWidth="200px">{{ 'NEWSLIST.PublishModification' | translate }}</th>
+            <th nzWidth="150px">{{ 'NEWSLIST.Category' | translate }}</th>
+            <!-- الحقل التالي اظهار كل الاخبار بغض النظر عن الحالة اي المنشورة والمزمنة وغيره- عالجها لاحقا -->
+            <!-- <th *ngIf="statusValue==='null'">Status</th> -->
+            <th nzWidth="100px">{{ 'NEWSLIST.Views' | translate }}</th>
+            <th nzLeft nzWidth="120px">{{ 'NEWSLIST.Action' | translate }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of newsTable.data">
+
+            <td nzRight nzWidth="100px" nzAlign="center">
+                <nz-avatar [nzShape]="'square'" [nzSize]="64" [nzSrc]="data.photoUrlThumbnail"></nz-avatar>
+            </td>
+            <td>
+
+
+                <span class="d-block ">{{data.title}}</span>
+                <span class="d-block">
+                            <i nz-tooltip nzTooltipTitle="{{ 'NEWSLIST.EditorChoice' | translate }}" *ngIf="data.isChooseEditor" nz-icon nzType="like" [nzTheme]="'twotone'" class="m-2"></i>
+                            <i nz-tooltip nzTooltipTitle="{{ 'NEWSLIST.ShowInMain' | translate }}" *ngIf="data.isShowInMain" nz-icon nzType="star" [nzTheme]="'twotone'" class="m-2"></i>
+                            <i nz-tooltip nzTooltipTitle="{{ 'NEWSLIST.BreakingOrImportant' | translate }}"  *ngIf="data.isBreakingOrImportant" nz-icon nzType="rise" nzTheme="outline" class="m-2"  style="color: red;"></i>
+                        
+                        </span>
+
+
+
+            </td>
+            <td nzWidth="200px">
+                <span>
+                     <i nz-tooltip nzTooltipTitle="{{ 'NEWSLIST.CreatedBy' | translate }} {{data.createdUserName}}"   nz-icon nzType="plus-circle" nzTheme="outline">
+
+                     </i> 
+                     {{data.createdUserName}}
+                </span>
+                <span nz-typography nz-tooltip nzTooltipTitle="{{ 'NEWSLIST.publishOn' | translate }} {{data.publishedAt | amFromUtc | amLocal   | amDateFormat: 'h:mm a , Do MMMM  YYYY'}}">
+                     {{data.publishedAt  | amFromUtc  | amLocal | amTimeAgo}}
+                    
+                </span>
+                <span [hidden]="!data.updatedUserName">
+                    <i nz-icon nzType="edit" nzTheme="outline"  nz-tooltip nzTooltipTitle="{{ 'NEWSLIST.LastUpdatedBy' | translate }} {{data.updatedUserName}}">
+
+                    </i> 
+                {{data.updatedUserName}}
+            </span>
+                <span [hidden]="!data.updatedAt" nz-typography nz-tooltip nzTooltipTitle="{{ 'NEWSLIST.LastUpdatedOn' | translate }} {{data.updatedAt | amFromUtc | amLocal   | amDateFormat: 'h:mm a , Do MMMM  YYYY'}}"> 
+                    
+                    {{data.updatedAt  | amFromUtc  | amLocal | amTimeAgo}}</span>
+            </td>
+            <td nzWidth="150px">{{data.category}}</td>
+
+            <!-- 
+              الحقل التالي اظهار كل الاخبار بغض النظر عن الحالة اي المنشورة والمزمنة وغيره- عالجها لاحقا  
+
+
+            <td *ngIf="statusValue=== 'null'">
+                <nz-tag nzColor="success" *ngIf="data.status=='Published'">
+                    <i nz-icon nzType="check-circle"></i>
+                    <span>Published</span>
+                </nz-tag>
+
+                <nz-tag nzColor="error" *ngIf="data.status=='Rejected'">
+                    <i nz-icon nzType="close-circle"></i>
+                    <span>Rejected</span>
+                </nz-tag>
+
+                <nz-tag nzColor="default" *ngIf="data.status=='Scheduled'">
+                    <i nz-icon nzType="clock-circle"></i>
+                    <span>Scheduled</span>
+                </nz-tag>
+
+                <nz-tag nzColor="processing" *ngIf="data.status=='Pending'">
+                    <i nz-icon nzType="sync" nzSpin></i>
+                    <span>Pending</span>
+                </nz-tag>
+
+                <nz-tag nzColor="warning" *ngIf="data.status=='Draft'">
+                    <i nz-icon nzType="edit"></i>
+                    <span>Draft</span>
+                </nz-tag>
+            </td> -->
+            <td nzWidth="100px"> {{data.noOfRead}}</td>
+            <td nzLeft nzWidth="120px" nzAlign="center">
+
+
+
+                <a [hidden]="data.status==='Rejected' || data.status==='Draft'" nz-popconfirm nzPopconfirmTitle="{{ 'NEWSLIST.AreYouSureDelete' | translate }}" nzPopconfirmPlacement="topRight" (nzOnConfirm)="onChangeNewsStatus(data,'Rejected')">
+                    <i nz-tooltip nzTooltipTitle="{{ 'NEWSLIST.DeleteNews' | translate }}" nz-icon nzType="delete" nzTheme="outline">
+                        </i>
+                </a>
+                <a [hidden]="data.status!=='Draft'" nz-popconfirm nzPopconfirmTitle="{{ 'NEWSLIST.AreYouSurepPermanentlyDelete' | translate }}" nzPopconfirmPlacement="topRight" (nzOnConfirm)="ondeleteDraftNews(data)" [nzIcon]="iconTpl">
+                    <ng-template #iconTpl>
+                        <i nz-icon nzType="question-circle-o" style="color: red;"></i>
+                    </ng-template>
+                    <i nz-tooltip nzTooltipTitle="{{ 'NEWSLIST.PermanentlyDeleteDraft' | translate }}" nz-icon nzType="delete" nzTheme="fill" style="color: red;">
+                        </i>
+                </a>
+
+                <a [hidden]="data.status!=='Rejected'" nz-popconfirm nzPopconfirmTitle="{{ 'NEWSLIST.AreYouSureRestore' | translate }}" nzPopconfirmPlacement="topRight" (nzOnConfirm)="onChangeNewsStatus(data,'Restore')">
+                    <i nz-tooltip nzTooltipTitle="{{ 'NEWSLIST.RestoreNews' | translate }}" nz-icon nzType="export" nzTheme="outline"></i>
+                </a>
+
+                <a>
+                    <nz-divider nzType="vertical"></nz-divider>
+
+                    <i [routerLink]="['../addOrEdit/', data.id]" nz-tooltip nzTooltipTitle="{{ 'NEWSLIST.EditNews' | translate }}" nz-icon nzType="edit" nzTheme="outline"></i>
+                </a>
+
+
+
+                <a [hidden]="data.status!=='Scheduled'" nz-popconfirm nzPopconfirmTitle="{{ 'NEWSLIST.AreYouSurePublishThisNewsRightNow' | translate }}" nzPopconfirmPlacement="topRight" (nzOnConfirm)="onChangeNewsStatus(data,'PublishNow')">
+                    <nz-divider nzType="vertical"></nz-divider>
+
+                    <i nz-tooltip nzTooltipTitle="{{ 'NEWSLIST.PublishNewsRightNow' | translate }}" nz-icon nzType="send" nzTheme="outline"></i>
+                </a>
+
+                <a [hidden]="data.status!=='Pending' " nz-popconfirm nzPopconfirmTitle="{{ 'NEWSLIST.AreYouSureGiveApproval' | translate }}" nzPopconfirmPlacement="topRight" (nzOnConfirm)="onChangeNewsStatus(data,'Approve')">
+                    <nz-divider nzType="vertical"></nz-divider>
+
+                    <i nz-tooltip nzTooltipTitle="{{ 'NEWSLIST.NewsApproval' | translate }}" nz-icon nzType="file-done" nzTheme="outline"></i>
+                </a>
+
+                <a [hidden]="data.status!=='Published'">
+                    <nz-divider nzType="vertical"></nz-divider>
+
+                    <i (click)="openNewTab(data.id)" nz-tooltip nzTooltipTitle="{{ 'NEWSLIST.DisplayNewsOnWebsite' | translate }}" nz-icon nzType="eye" nzTheme="outline"></i>
+                </a>
+
+
+
+
+            </td>
+        </tr>
+    </tbody>
+</nz-table>
+
+<!--  pagination -->
+
+<div nz-row>
+    <div nz-col nzSpan="16">
+
+
+
+        <div class="d-flex justify-content-center mt-4" *ngIf="pagination">
+
+            <app-pager [pageSize]="pagination.itemsPerPage" [totalCount]="pagination.totalItems" [totalPages]="pagination.totalPages" [pageIndex]="pagination.currentPage" (PageIndexChange)="onPageIndexChange($event)" (PageSizeChange)="onPageSizeChange($event)">
+            </app-pager>
+        </div>
+
+    </div>
+
+</div>

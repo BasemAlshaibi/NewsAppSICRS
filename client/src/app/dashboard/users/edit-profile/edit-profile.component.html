@@ -1,0 +1,82 @@
+<app-divider text="{{ 'EditProfile.EditProfile' | translate }}" [icon]="'edit'">
+</app-divider>
+
+<!--   -->
+<div *ngIf="user">
+
+    <nz-card class="text-start">
+
+        <button nz-button nzSize="large" nzType="primary" nzShape="round" [disabled]="!editProfileForm.valid" form="editProfileForm" type="submit"><i nz-icon nzType="save"></i> Save </button>
+
+        <!-- <button nz-button nzSize="large" nzType="primary" nzShape="circle" type="button" (click)="resetForm($event)" form="editProfileForm"><i nz-icon nzType="rest"></i></button> -->
+    </nz-card>
+
+
+    <div nz-row>
+        <div nz-col nzXs="12" nzLg="6">
+            <!-- card user -->
+            <nz-card nzHoverable style="width:80%" [nzCover]="coverTemplate">
+                <nz-card-meta nzTitle="{{user.knownAs}}" nzDescription="{{user.introduction}}"></nz-card-meta>
+
+            </nz-card>
+
+            <ng-template #coverTemplate>
+
+                <img nz-image [ngStyle]="{ width:'100%'}" nzSrc="{{ user.photoUrl }}" alt="" />
+
+            </ng-template>
+
+        </div>
+
+        <div nz-col nzXs="24" nzLg="18">
+            <!-- tabs user -->
+            <nz-tabset nzSize="large">
+
+                <nz-tab nzTitle="{{ 'EditProfile.YourProfile' | translate }}">
+                    <form nz-form [formGroup]="editProfileForm" id="editProfileForm" (ngSubmit)="submitForm()">
+                        <nz-form-item>
+
+                            <nz-form-label class="text-end" nzFor="knownAs" [nzXs]="{ span: 24 }" [nzMd]="{ span: 4 }" [nzLg]="{ span: 4 }">
+                                {{ 'EditProfile.knownAs' | translate }}
+
+                            </nz-form-label>
+
+
+                            <nz-form-control [nzXs]="{ span: 24 }" [nzMd]="{ span: 18 }" [nzLg]="{ span: 14 }">
+                                <input nzSize="large" nz-input formControlName="knownAs" id="knownAs" placeholder=" {{ 'EditProfile.knownAsPlaceholder' | translate }}" />
+
+                            </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                            <nz-form-label class="text-end" [nzXs]="{ span: 4 }" [nzLg]="{ span: 4 }">{{ 'EditProfile.Gender' | translate }}
+
+                            </nz-form-label>
+                            <nz-form-control [nzXs]="{ span: 16 }" [nzLg]="{ span: 14 }">
+                                <nz-radio-group nzButtonStyle="solid" formControlName="gender" nzSize="large">
+                                    <label nz-radio-button nzValue="male">{{ 'EditProfile.Male' | translate }}</label>
+                                    <label nz-radio-button nzValue="female">{{ 'EditProfile.Female' | translate }}</label>
+                                </nz-radio-group>
+                            </nz-form-control>
+                        </nz-form-item>
+
+                        <nz-form-item>
+                            <nz-form-label class="text-end" [nzXs]="{ span: 4 }" [nzLg]="{ span: 4 }">{{ 'EditProfile.Introduction' | translate }}</nz-form-label>
+                            <nz-form-control [nzXs]="{ span: 16 }" [nzLg]="{ span: 14 }">
+                                <textarea nzSize="large" formControlName="introduction" nz-input rows="2" placeholder="{{ 'EditProfile.IntroductionPlaceholder' | translate }}"></textarea>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </form>
+
+
+
+
+                </nz-tab>
+                <nz-tab nzTitle="{{ 'EditProfile.Photos' | translate }}">
+                    <app-custom-upload [user]="user"></app-custom-upload>
+                </nz-tab>
+                <nz-tab nzTitle="{{ 'EditProfile.preferences' | translate }} "> قيد التطوير</nz-tab>
+            </nz-tabset>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="app-header d-flex justify-content-between mx-4">
+    <div>
+        <span class="header-trigger" (click)="toggleSlider()">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+        </span>
+
+        <span class="header-trigger">
+      <nz-switch  nzCheckedChildren=" {{ 'headerPanel.Light' | translate }}" nzUnCheckedChildren=" {{ 'headerPanel.Dark' | translate }}" (click)="toggleTheme()" ></nz-switch>
+
+        </span>
+
+
+        <nz-select [(ngModel)]="selectedLanguge" nzBorderless (ngModelChange)="switchLang(selectedLanguge)" [nzCustomTemplate]="defaultTemplate">
+            <nz-option nzValue="ar" nzLabel="AR"></nz-option>
+            <nz-option nzValue="en" nzLabel="EN"></nz-option>
+        </nz-select>
+        <ng-template #defaultTemplate let-selected>
+            <i nz-icon nzType="global"></i> {{ selected.nzLabel }}
+        </ng-template>
+
+
+
+
+    </div>
+
+    <!-- <select #selectedLang (change)="switchLang(selectedLang.value)">
+        <option *ngFor="let language of translate.getLangs()" [value]="language"
+            [selected]="language === translate.currentLang">
+            {{ language | uppercase }}
+          </option>
+      </select> -->
+
+
+
+
+
+
+
+    <div nz-dropdown [nzDropdownMenu]="menu" *ngIf="(accountService.currentUser$ | async) as user">
+
+
+        <img class="mx-2" src="{{user.photoUrl || './assets/user.png'}}" alt="{{user.username}}">
+        <a class="mx-2 d-none d-sm-inline-block"><span nz-typography nzType="secondary"> {{user.knownAs || user.username | titlecase}}</span>
+            
+            </a>
+        <i nz-icon nzType="down"></i>
+
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu>
+
+                <li nz-menu-item [routerLink]="['./users/editProfile']"> <i nz-icon nzType="user" nzTheme="outline" class="me-2"></i> {{ 'headerPanel.EditProfile' | translate }}</li>
+
+                <li nz-menu-item (click)="logout()"><i nz-icon nzType="logout" nzTheme="outline" class="me-2"></i>{{ 'headerPanel.Logout' | translate }}</li>
+            </ul>
+        </nz-dropdown-menu>
+
+    </div>
+
+</div>

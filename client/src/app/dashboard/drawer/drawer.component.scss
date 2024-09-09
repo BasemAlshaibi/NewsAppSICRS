@@ -1,0 +1,29 @@
+.Icon-Drawer-container {
+    //  position: absolute;
+    // right: 0px;
+    width: 500px;
+    border-radius: 5px 0 0 5px;
+    // top: 300px;
+    background-color: rgba(10, 10, 10, 0.959);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+}
+
+.Icon-Drawer-container i {
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+}
+
+.Icon-Drawer-container:hover i {
+    color: #1890ff;
+}
+
+.mydiv {
+    width: 100px;
+    height: 100px;
+    background-color: darkcyan;
+}

@@ -1,0 +1,129 @@
+.AboutSite {
+    background-color: #262626;
+    margin-top: 30px;
+    padding: 15px 0;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.developedBy {
+    background-color: #222;
+    border-top: 1px solid rgb(132, 128, 128);
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+}
+
+//**//
+
+/* Color Variables */
+
+$color-twitter: #2b97f1;
+$color-instagram: #C13584;
+$color-facebook: #3b5a9b;
+$color-youtube: #FF0000;
+$color-telegram: #0088cc;
+$color-rss: #ee802f;
+
+/* Social Icon Mixin */
+
+@mixin social-icon($color) {
+    background: $color;
+    color: #fff;
+    .tooltip {
+        background: $color;
+        color: currentColor;
+        &:after {
+            border-top-color: $color;
+        }
+    }
+}
+
+
+/* Social Icons */
+
+.social-icons {
+    display: flex;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin: 0 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 2.5rem;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    &:hover {
+        color: #fff;
+        .tooltip {
+            visibility: visible;
+            opacity: 1;
+            transform: translate(-50%, -150%);
+        }
+    }
+    &:active {
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5) inset;
+    }
+    &--twitter {
+        @include social-icon($color-twitter);
+    }
+    &--facebook {
+        @include social-icon($color-facebook);
+    }
+    &--youtube {
+        @include social-icon($color-youtube);
+    }
+    &--instagram {
+        @include social-icon($color-instagram);
+    }
+    &--telegram {
+        @include social-icon($color-telegram);
+    }
+    &--rss {
+        @include social-icon($color-rss);
+        font-size: 1.3rem;
+    }
+    i {
+        position: relative;
+        top: 1px;
+    }
+}
+
+
+/* Tooltips */
+
+.tooltip {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    padding: 0.4rem 0.5rem;
+    border-radius: 15px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    text-transform: uppercase;
+    transform: translate(-50%, -100%);
+    transition: all 0.3s ease;
+    z-index: 1;
+    &:after {
+        display: block;
+        position: absolute;
+        bottom: 1px;
+        left: 50%;
+        width: 0;
+        height: 0;
+        content: "";
+        border: solid;
+        border-width: 8px 8px 0 8px;
+        border-color: transparent;
+        transform: translate(-50%, 100%);
+    }
+}

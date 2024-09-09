@@ -1,0 +1,52 @@
+<div class="sidebar-logo">
+    <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+
+    <h1 *ngIf="!isCollapsed">{{ 'SIDEBAR.NewsDashboard' | translate }}</h1>
+
+</div>
+
+<div class="sidebar-user" *ngIf="(accountService.currentUser$ | async) as user">
+    <nz-avatar *ngIf="!isCollapsed" [nzSize]="64" nzSrc="{{user.photoUrl || './assets/user.png'}}" nzIcon="user"></nz-avatar>
+    <nz-avatar *ngIf="isCollapsed" nzIcon="user" nzSrc="{{user.photoUrl || './assets/user.png'}}"></nz-avatar>
+    <p *ngIf="!isCollapsed" class=" mt-2">{{user.knownAs || user.username | titlecase}}</p>
+</div>
+<ul nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+    <!-- <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard"> -->
+
+    <li nz-submenu nzTitle="{{ 'SIDEBAR.Dashboard' | translate }}" nzIcon="dashboard">
+        <ul>
+            <li nz-menu-item nzMatchRouter>
+                <a>{{ 'SIDEBAR.Welcome' | translate }}</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+                <a>{{ 'SIDEBAR.Monitor' | translate }}</a>
+            </li>
+
+        </ul>
+    </li>
+    <li nz-submenu nzTitle="{{ 'SIDEBAR.UserManagement' | translate }}" nzIcon="team">
+        <ul>
+            <li nz-menu-item nzMatchRouter>
+                <a [routerLink]="[ './account/register']">{{ 'SIDEBAR.AddNewUser' | translate }}</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+                <a [routerLink]="[ './users/usersList']">{{ 'SIDEBAR.UsersList' | translate }}</a>
+            </li>
+        </ul>
+    </li>
+    <li nz-submenu nzOpen nzTitle="{{ 'SIDEBAR.NewsAndCategories' | translate }}" nzIcon="pic-left">
+        <ul>
+            <li nz-menu-item nzMatchRouter>
+                <a [routerLink]="[ './categories/manageCategories']">{{ 'SIDEBAR.ManageCategories' | translate }}</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+                <a [routerLink]="[ './news/newsList']">{{ 'SIDEBAR.ManageNews' | translate }}</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+                <!-- عالج مشكلة ظهور الاكتف على اللينك بالقائمة الجانبية وقت التعديل -->
+                <a [routerLink]="[ './news/addOrEdit']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact : true}">{{ 'SIDEBAR.AddNewNews' | translate }}</a>
+            </li>
+        </ul>
+    </li>
+
+</ul>

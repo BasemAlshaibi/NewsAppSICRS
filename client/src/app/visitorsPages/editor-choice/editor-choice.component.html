@@ -1,0 +1,27 @@
+<!-- <div style="min-height: 50px;" infiniteScroll (scrolled)="onScrollDown($event)" [infiniteScrollDisabled]="blockInfiniteScroll" [infiniteScrollDistance]="1" [infiniteScrollThrottle]="500"></div> -->
+
+<div class="editor-choice">
+    <swiper [config]="config" dir="ltr" class="mySwiper">
+        <ng-template swiperSlide *ngFor="let news of newsList">
+
+            <img src="{{news.photoUrlThumbnail || './assets/user.png'}}" alt="">
+
+            <div class="titleContainer">
+                <div class="title" [routerLink]="['./news/', news.id]">
+
+                    <a> {{news.title | truncate : 60 }}</a>
+
+                </div>
+                <div class="time"> <i nz-icon nzType="clock-circle" nzTheme="outline"></i> {{news.publishedAt | amFromUtc | amLocal | amTimeAgo }}
+                </div>
+
+            </div>
+
+
+        </ng-template>
+
+
+
+
+    </swiper>
+</div>

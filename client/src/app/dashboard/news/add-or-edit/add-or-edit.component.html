@@ -1,0 +1,249 @@
+<!-- Header -->
+<app-divider [text]="pageTitle" [icon]="'plus-circle'">
+</app-divider>
+
+
+
+<!-- Form  -->
+<!-- <nz-card> -->
+<form nz-form [formGroup]="newsForm" (ngSubmit)="submitForm()">
+
+    <div class="row">
+        <div class="col-12 col-xl-8">
+
+            <!-- Title -->
+            <nz-form-item class="mt-3">
+
+                <nz-form-label class="text-end" nzFor="title" [nzXs]="{ span: 24 }" [nzMd]="{ span: 4 }" [nzLg]="{ span: 3 }" nzRequired> {{ 'NewsForm.Title' | translate }} </nz-form-label>
+
+                <nz-form-control [nzXs]="{ span: 24 }" [nzMd]="{ span: 20 }" [nzLg]="{ span: 21 }" nzHasFeedback [nzErrorTip]="titleErrorTpl">
+                    <input nzSize="large" nz-input formControlName="title" id="title" placeholder="{{ 'NewsForm.EnterTitle' | translate }}" />
+                    <ng-template #titleErrorTpl let-control>
+                        <ng-container *ngIf="control.hasError('required')">{{ 'NewsForm.PleaseInputTitle' | translate }}</ng-container>
+                        <ng-container *ngIf="control.hasError('maxlength')">{{ 'NewsForm.maxLengthTitle' | translate }}</ng-container>
+
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
+            <!-- Summary -->
+
+            <nz-form-item>
+                <nz-form-label class="text-end" [nzXs]="{ span: 24 }" [nzMd]="{ span: 4 }" [nzLg]="{ span: 3 }" nzFor="summary">{{ 'NewsForm.Summary' | translate }}</nz-form-label>
+                <nz-form-control [nzXs]="{ span: 24 }" [nzMd]="{ span: 20 }" [nzLg]="{ span: 21 }" nzHasFeedback [nzErrorTip]="summaryErrorTpl">
+                    <textarea nzSize="large" formControlName="summary" nz-input rows="3" placeholder="{{ 'NewsForm.EnterSummary' | translate }}"></textarea>
+                    <ng-template #summaryErrorTpl let-control>
+                        <ng-container *ngIf="control.hasError('maxlength')">{{ 'NewsForm.SummaryErrorTpl' | translate }}</ng-container>
+
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
+            <!-- Category -->
+
+            <nz-form-item>
+                <nz-form-label class="text-end" [nzXs]="{ span: 24 }" [nzMd]="{ span: 4 }" [nzLg]="{ span: 3 }" nzFor="categoryId">{{ 'NewsForm.Category' | translate }}</nz-form-label>
+                <nz-form-control [nzXs]="{ span: 24 }" [nzMd]="{ span: 20 }" [nzLg]="{ span: 21 }" nzErrorTip="{{ 'NewsForm.PleaseSelectCategory' | translate }}">
+
+
+                    <nz-select id="categoryId" nzSize="large" nzAllowClear nzPlaceHolder="{{ 'NewsForm.SelectCategory' | translate }}" formControlName="categoryId" [(ngModel)]="SelectedCategory">
+                        <nz-option *ngFor="let option of listOfcategories" [nzValue]="option.value" [nzLabel]="option.label" [nzDisabled]="option.isActive==false"></nz-option>
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+            <!-- image news uploader -->
+
+            <nz-card class="p-0 border border-secondary rounded offset-2">
+
+                <app-image-news-uploader *ngIf="news" (newsImageToAddEvent)="newsImageHandle($event)" [news]="news"></app-image-news-uploader>
+            </nz-card>
+
+            <!-- Source -->
+
+            <nz-form-item>
+                <nz-form-label class="text-end" [nzXs]="{ span: 24 }" [nzMd]="{ span: 4 }" [nzLg]="{ span: 3 }" nzFor="source" nzRequired>{{ 'NewsForm.Source' | translate }} </nz-form-label>
+                <nz-form-control [nzXs]="{ span: 24 }" [nzMd]="{ span: 20 }" [nzLg]="{ span: 21 }" nzHasFeedback [nzErrorTip]="sourceErrorTpl">
+                    <input nzSize="large" nz-input formControlName="source" id="source" placeholder="{{ 'NewsForm.EnterSource' | translate }}" />
+                    <ng-template #sourceErrorTpl let-control>
+                        <ng-container *ngIf="control.hasError('required')">{{ 'NewsForm.PleaseInputSource' | translate }}</ng-container>
+
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
+
+            <!-- Content -->
+
+            <nz-form-item>
+                <nz-form-label class="text-end" [nzXs]="{ span: 24 }" [nzMd]="{ span: 4 }" [nzLg]="{ span: 3 }" nzFor="content">{{ 'NewsForm.Content' | translate }} </nz-form-label>
+                <nz-form-control [nzXs]="{ span: 24 }" [nzMd]="{ span: 20 }" [nzLg]="{ span: 21 }" nzHasFeedback [nzErrorTip]="contentErrorTpl">
+
+
+
+                    <textarea rows="10" nz-input [required]="true" dir="ltr" formControlName="content" placeholder="{{ 'NewsForm.EnterContent' | translate }}"></textarea>
+
+
+                    <ng-template #contentErrorTpl let-control>
+                        <ng-container *ngIf="control.hasError('required')">{{ 'NewsForm.PleaseInputContent' | translate }}</ng-container>
+
+                    </ng-template>
+                </nz-form-control>
+            </nz-form-item>
+
+
+
+        </div>
+
+        <div class="col-12 col-xl-4">
+
+
+
+            <nz-card class="  border border-secondary rounded">
+
+
+                <nz-divider nzPlain nzDashed [nzText]="PublishingOptions">
+                    <ng-template #PublishingOptions>
+                        {{ 'NewsForm.PublishingOptions' | translate }} </ng-template>
+                </nz-divider>
+
+
+                <nz-form-item>
+
+                    <nz-form-control>
+
+                        <nz-radio-group [(ngModel)]="statusvalue" formControlName="status" nzButtonStyle="solid" nzSize="large" (ngModelChange)="onStatusChange($event)">
+                            <!-- <label nz-radio-button [nzValue]="so.value" *ngFor="let so of statusOptions">{{ so.label }}</label> -->
+
+                            <!-- التالي في وقت التحديث يعرض انه ببلشد اي منشور -->
+                            <label *ngIf="news?.status==='Published'" nz-radio-button nzValue="Published">
+
+              {{ 'NewsForm.Published' | translate }}
+            </label>
+
+                            <!-- التالي في وقت الاضافة يعرض انه بوست اي النشر الان -->
+
+                            <label *ngIf="news?.status!=='Published'" nz-radio-button nzValue="Published">
+                                     
+              {{ 'NewsForm.Post' | translate }}   
+                                </label>
+
+                            <!-- <label *ngIf="news.status==='Rejected'" nz-radio-button nzValue="Published">Restore</label> -->
+
+                            <!--  التالي جدولة ويظهر بالحالتين سواء تعديل او اضافة-->
+
+                            <label nz-radio-button nzValue="Scheduled">    
+                                {{ 'NewsForm.Scheduling' | translate }}   
+                            </label>
+
+
+                            <!--  التالي مسودة ويظهر فقط بحالة الاضافة-->
+
+                            <label *ngIf="!news?.id" nz-radio-button nzValue="Draft">
+                                {{ 'NewsForm.Draft' | translate }}   
+
+                            </label>
+
+                            <!--  التالي تعليق او ترحيل للمراجعة ويظهر فقط بحالة التعديل-->
+
+
+
+                            <label *ngIf="news?.id" nz-radio-button nzValue="Pending">
+                                {{ 'NewsForm.Pending' | translate }}   
+
+                            </label>
+
+
+
+                        </nz-radio-group>
+                    </nz-form-control>
+
+
+                </nz-form-item>
+
+                <nz-form-item *ngIf="statusvalue=='Scheduled'">
+                    <nz-form-label class="text-end col-4"> {{ 'NewsForm.DateAndTime' | translate }} </nz-form-label>
+                    <nz-form-control [nzErrorTip]="publishedAtErrorTpl">
+                        <nz-date-picker [nzShowTime]="{ nzFormat: 'HH:mm' }" [nzFormat]="dateFormat" nzSize="large" nzShowTime formControlName="publishedAt"></nz-date-picker>
+                        <ng-template #publishedAtErrorTpl let-control>
+                            <ng-container *ngIf="control.hasError('schedulingDate')"> {{ 'NewsForm.PleaseSchedulingDate' | translate }}</ng-container>
+
+                        </ng-template>
+                        <!-- [nzDisabledDate]="disabledDate" [nzDisabledTime]="disabledTime" -->
+                    </nz-form-control>
+                </nz-form-item>
+            </nz-card>
+            <nz-card class="border border-secondary rounded mt-2">
+                <nz-divider nzPlain nzDashed [nzText]="Distribution">
+                    <ng-template #Distribution>
+                        <!-- <i nz-icon nzType="plus"></i>  -->{{ 'NewsForm.Distribution' | translate }}
+                    </ng-template>
+                </nz-divider>
+
+                <nz-switch formControlName="isShowInMain" class="m-2"></nz-switch>
+                <label>
+                    {{ 'NewsForm.ShowInMain' | translate }}</label>
+
+                <br/>
+                <nz-switch formControlName="isChooseEditor" class="m-2"></nz-switch>
+                <label>
+                    {{ 'NewsForm.EditorChoice' | translate }}
+                          </label>
+                <br/>
+                <ng-container *ngIf="statusvalue!=='Draft'">
+                    <nz-switch formControlName="isBreakingOrImportant" class="m-2"></nz-switch>
+                    <label>
+                        {{ 'NewsForm.BreakingOrImportant' | translate }}
+                    </label>
+
+                    <nz-form-item *ngIf="isBreakingOrImportant.value==true">
+                        <nz-form-label class="text-end col-8">
+                            {{ 'NewsForm.DurationToShowBreakingNews' | translate }}
+
+                        </nz-form-label>
+                        <nz-form-control>
+                            <nz-input-number formControlName="breakingOrImportantDuration" [nzSize]=" 'large'" [nzMin]="1" [nzMax]="120" [nzStep]="5"></nz-input-number>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                </ng-container>
+
+
+
+
+
+
+            </nz-card>
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- فوتر الفورم الخاص بازرار الاكشن  [disabled]="!newsForm.valid"-->
+    <div class="offset-2">
+
+        <nz-form-item>
+            <nz-form-control>
+
+                <button nz-button type="submit" nzType="primary" nzSize="large" [disabled]="!newsForm.valid">
+                    
+                    {{ 'NewsForm.Submit' | translate }}
+                </button>
+                <nz-divider nzType="vertical"></nz-divider>
+
+                <button nz-button type="button" (click)="resetForm($event)" nzSize="large">   
+                        {{ 'NewsForm.Reset' | translate }}
+                </button>
+                <nz-divider nzType="vertical"></nz-divider>
+
+                <button nz-button type="button" nzSize="large" (click)="cancel()"> {{ 'NewsForm.Cancel' | translate }}</button>
+
+
+            </nz-form-control>
+        </nz-form-item>
+    </div>
+
+</form>
+<!-- </nz-card> -->

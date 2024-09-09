@@ -1,0 +1,62 @@
+<div class="container" *ngIf="newsList">
+
+
+
+    <div class="marquee-news-bar">
+
+
+        <div class="head-bar">
+            <i nz-icon nzType="global" nzTheme="outline"></i> <span *ngIf="getScreenWidth >=1000">Last Story</span>
+
+        </div>
+
+        <div class="news-bar">
+
+            <swiper [config]="config" dir="rtl">
+                <ng-template swiperSlide *ngFor="let news of newsList">
+
+
+
+                    <a [routerLink]="['./news/', news.id]">
+
+                        <nz-avatar nzShape="square" nzSize="large" class="imageNews" nzSrc="{{news.photoUrlThumbnail || './assets/user.png'}}" alt="{{news.title}}"></nz-avatar>
+
+
+                        <span *ngIf="getScreenWidth >=1000">{{news.title }}</span>
+
+                        <span *ngIf="getScreenWidth <=1000 && getScreenWidth >=770">{{news.title | truncate : 60 }}</span>
+                        <span *ngIf="getScreenWidth <=770 && getScreenWidth >=480">{{news.title | truncate : 40 }}</span>
+
+                        <span *ngIf="getScreenWidth <=480">{{news.title | truncate : 30 }}</span>
+
+
+
+
+                    </a>
+
+
+                </ng-template>
+
+
+
+
+
+            </swiper>
+
+            <!-- <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
+
+            <div class="navigationArrow">
+
+                <span class="swiper-button-next"></span>
+                <span class="swiper-button-prev"></span>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>

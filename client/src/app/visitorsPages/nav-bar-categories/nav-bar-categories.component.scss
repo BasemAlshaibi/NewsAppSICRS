@@ -1,0 +1,291 @@
+ nav {
+     line-height: 55px;
+     height: 55px;
+     border-top: 5px solid #c5a12e;
+     -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+     background: white;
+ }
+ 
+ .nav-container {
+     display: flex;
+     justify-content: space-between;
+     //   margin-left: 5%;
+     //   margin-right: 5%;
+     height: 100%;
+ }
+ 
+ ul {
+     display: flex;
+     justify-content: flex-start;
+     align-items: flex-start;
+     list-style: none;
+     //  background-color: #c5a12e;
+     padding-right: 0px
+ }
+ 
+ ul li {
+     margin: 0 10px;
+ }
+ 
+ ul li a {
+     color: rgb(26, 26, 26);
+     margin: 0 10px;
+     font-weight: 200;
+     text-decoration: none;
+     position: relative; // من اجل الافتر
+     opacity: 0.75;
+ }
+ 
+ ul li a:hover {
+     color: #d4112f;
+     opacity: 1;
+ }
+ 
+ ul li a::before {
+     transition: 300ms;
+     height: 5px;
+     content: "";
+     position: absolute;
+     background-color: #d4112f;
+     height: 0%;
+     width: 100%;
+     bottom: -13px;
+ }
+ 
+ ul li a:hover::before {
+     height: 5px;
+ }
+ /* Hamberger section */
+ 
+ .media_button {
+     width: 40px;
+     height: 55px;
+     background-color: transparent;
+     position: absolute;
+     right: 15px;
+     top: 150px;
+     display: none;
+ }
+ 
+ .media_button button.main_media_button {
+     width: 100%;
+     height: 100%;
+     background-color: transparent;
+     outline: 0;
+     border: none;
+     cursor: pointer;
+ }
+ 
+ .media_button button.main_media_button span {
+     width: 98%;
+     height: 1px;
+     display: block;
+     background-color: #c5a12e;
+     margin-top: 9px;
+     margin-bottom: 10px;
+ }
+ 
+ .media_button button.main_media_button:hover span:nth-of-type(1) {
+     transform: rotateY(180deg);
+     transition: all 0.5s;
+     background-color: #c0c0c0;
+ }
+ 
+ .media_button button.main_media_button:hover span:nth-of-type(2) {
+     transform: rotateY(180deg);
+     transition: all 0.4s;
+     background-color: #c0c0c0;
+ }
+ 
+ .media_button button.main_media_button:hover span:nth-of-type(3) {
+     transform: rotateY(180deg);
+     transition: all 0.3s;
+     background-color: #c0c0c0;
+ }
+ 
+ .media_button button.active span:nth-of-type(1) {
+     transform: rotate3d(0, 0, 1, 45deg);
+     position: absolute;
+     margin: 0;
+ }
+ 
+ .media_button button.active span:nth-of-type(2) {
+     display: none;
+ }
+ 
+ .media_button button.active span:nth-of-type(3) {
+     transform: rotate3d(0, 0, 1, -45deg);
+     position: absolute;
+     margin: 0;
+ }
+ 
+ .media_button button.active:hover span:nth-of-type(1) {
+     transform: rotate3d(0, 0, 1, 20deg);
+ }
+ 
+ .media_button button.active:hover span:nth-of-type(3) {
+     transform: rotate3d(0, 0, 1, -20deg);
+ }
+ 
+ //cancel-icon
+ .cancel-icon {
+     background-color: #c5a12e;
+     padding: 0 15px;
+     cursor: pointer;
+     display: none;
+ }
+ 
+ //search-icon
+ .search-icon {
+     background-color: #c5a12e;
+     padding: 0 15px;
+     cursor: pointer;
+ }
+ /* Medai qurey section */
+ 
+ @media screen and (min-width: 768px) and (max-width: 1024px) {
+     .navContainer {
+         margin: 0;
+     }
+ }
+ 
+ @media screen and (max-width:1115px) {
+     .navContainer {
+         margin: 0;
+     }
+     .main_list {
+         width: 100%;
+         margin-top: 50px;
+         height: 0px;
+         overflow: hidden;
+     }
+     .show_list {
+         height: auto;
+         background-color: #c5a12e;
+         z-index: 5;
+     }
+     ul {
+         flex-direction: column;
+         width: 100%;
+         height: 0px;
+         overflow: hidden;
+         position: absolute;
+         top: 203px;
+         right: 0;
+         left: 0;
+     }
+     ul li {
+         width: 100%;
+         height: 40px;
+         margin: 5px 0;
+     }
+     ul li a {
+         text-align: center;
+         // line-height: 40px;
+         width: 100%;
+         height: 40px;
+         display: table;
+         margin: 0;
+     }
+     .media_button {
+         display: block;
+     }
+     ul li a:hover::before {
+         height: 0px;
+     }
+ }
+ /**********/
+ 
+ form {
+     display: none;
+     height: 40px;
+     padding: 2px;
+     background: #FFCA03;
+     min-width: 18%!important;
+     border-radius: 2px;
+     border: 1px solid #F24C4C;
+     position: absolute;
+     top: 45px; // مؤقت لتجريب الانميشن
+     right: 7.5%;
+     opacity: 0;
+     pointer-events: none;
+     z-index: 100;
+     transition: top 0.3s ease, opacity 0.1s ease;
+ }
+ 
+ form .input-search {
+     width: 100%;
+     height: 100%;
+     padding: 0 10px;
+     color: rgb(0, 0, 0);
+     font-size: 17px;
+     border: #F24C4C;
+     font-weight: 500;
+     background: #FFCA03;
+     ;
+     direction: ltr
+ }
+ 
+ form .input-search:focus {
+     outline: none;
+ }
+ 
+ form button {
+     padding: 0 15px;
+     color: #fff;
+     font-size: 17px;
+     background: #781D42;
+     border: none;
+     border-radius: 2px;
+     cursor: pointer;
+     line-height: 40px;
+ }
+ 
+ form button:hover {
+     background: #e63600;
+ }
+ 
+ form:before {
+     position: absolute;
+     content: "";
+     top: -13px;
+     right: 0px;
+     width: 0;
+     height: 0;
+     z-index: -1;
+     border: 10px solid transparent;
+     border-bottom-color: #c5a12e;
+     margin: -20px 0 0;
+ }
+ 
+ form:after {
+     position: absolute;
+     content: '';
+     height: 60px;
+     padding: 2px;
+     background: #c5a12e;
+     border-radius: 2px;
+     min-width: calc(100% + 20px);
+     z-index: -2;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);
+ }
+ 
+ .show_Search {
+     display: flex;
+     top: 230px;
+     opacity: 1;
+     pointer-events: auto;
+ }
+ 
+ // for js code to cancel  and Search icon
+ .hide {
+     display: none;
+ }
+ 
+ .show {
+     display: block;
+ }

@@ -1,0 +1,77 @@
+<div *ngIf="user">
+    <!-- @itemState  -->
+    <nz-upload class="d-flex flex-row flex-wrap" [nzMultiple]="true" nzListType="picture-card" [nzCustomRequest]="customUploadReq" [nzHeaders]="setMediaUploadHeaders" [nzFileList]="fileList" [nzFileListRender]="fileListTpl" [nzBeforeUpload]="beforeUpload"
+        (nzChange)="handleChange($event)">
+
+
+
+        <!-- النسخة الخاصة -->
+        <ng-template #fileListTpl let-list>
+
+            <div class="card-img-wrapper m-3" @itemState *ngFor="let item of list" [ngStyle]="item.isMain ? {'border-color':'#1890ff'} : null">
+
+                <ng-container *ngIf="item.status === 'uploading' else showImage">
+                    <!-- <i nz-icon nzType="loading"></i> -->
+                    <nz-progress nzPercent="{{item.percent}}" nzType="circle" [nzShowInfo]="true" [nzStrokeWidth]="2"></nz-progress>
+
+                </ng-container>
+                <ng-template #showImage>
+                    <!-- <i nz-icon [nzType]="file.isImageUrl ? 'picture' : 'file'" nzTheme="twotone"></i> -->
+                    <img nz-image [ngStyle]="{ width: '100%' }" nzSrc="{{ item.url }} " alt=" " />
+
+
+                    <ul class=" image-icons-list animate">
+
+                        <li class="listItem">
+                            <button type="button " nz-button nzType="text " nzSize="small " (click)="handleRemove(item, $event) ">
+                    <i nz-icon nzType="delete"></i>
+                  </button>
+                        </li>
+
+                        <li class="listItem">
+                            <button type="button " nz-button nzType="text " nzSize="small " (click)="handlePreview(item, $event) ">
+                    <i nz-icon nzType="eye"></i>
+                  </button>
+                        </li>
+
+                        <li class="listItem">
+                            <button type="button " nz-button nzType="text " nzSize="small " disabled="{{item.isMain}}" [ngStyle]="item.isMain ? { opacity: 0.8 } : null" (click)="handleCheck(item, $event) ">
+                    <i nz-icon nzType="check"></i>
+                  </button>
+                        </li>
+
+
+
+                    </ul>
+
+                </ng-template>
+
+
+
+
+
+
+            </div>
+
+
+        </ng-template>
+
+
+
+
+
+        <div>
+            <i nz-icon nzType="plus"></i>
+            <div style="margin-top: 8px ">Upload</div>
+        </div>
+
+
+
+    </nz-upload>
+
+    <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null" (nzOnCancel)="previewVisible = false">
+        <ng-template #modalContent>
+            <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+        </ng-template>
+    </nz-modal>
+</div>
